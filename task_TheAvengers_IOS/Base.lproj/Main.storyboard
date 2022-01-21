@@ -51,6 +51,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="buttonC_click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0ZT-SS-IaO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -88,7 +91,7 @@
         <!--Home Controller-->
         <scene sceneID="qEY-a8-yuR">
             <objects>
-                <viewController id="SII-Vw-JeX" customClass="HomeController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeController" id="SII-Vw-JeX" customClass="HomeController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qb0-eX-LUq">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,7 +123,7 @@
                                     <constraint firstAttribute="height" constant="80" id="nj0-fs-6P0"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAS-M8-cEe">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAS-M8-cEe" userLabel="search-filters">
                                 <rect key="frame" x="20" y="124" width="350" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVP-78-Nmd">
@@ -185,18 +188,29 @@
                                     <constraint firstItem="ZWS-XL-DGK" firstAttribute="top" secondItem="bAS-M8-cEe" secondAttribute="top" id="q0W-pn-3VL"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Myt-Ph-yMr">
+                                <rect key="frame" x="20" y="184" width="350" height="606"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bgU-6A-u4v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bAS-M8-cEe" firstAttribute="top" secondItem="U4N-py-oRz" secondAttribute="bottom" id="08H-SW-REf"/>
                             <constraint firstItem="bgU-6A-u4v" firstAttribute="trailing" secondItem="bAS-M8-cEe" secondAttribute="trailing" constant="20" id="7pA-Be-m2u"/>
+                            <constraint firstItem="bgU-6A-u4v" firstAttribute="bottom" secondItem="Myt-Ph-yMr" secondAttribute="bottom" constant="20" id="GCA-14-V9v"/>
+                            <constraint firstItem="bgU-6A-u4v" firstAttribute="trailing" secondItem="Myt-Ph-yMr" secondAttribute="trailing" constant="20" id="KbO-9U-tK9"/>
                             <constraint firstItem="U4N-py-oRz" firstAttribute="leading" secondItem="bgU-6A-u4v" secondAttribute="leading" id="P1e-Li-D3S"/>
+                            <constraint firstItem="Myt-Ph-yMr" firstAttribute="leading" secondItem="bgU-6A-u4v" secondAttribute="leading" constant="20" id="Vcl-09-zw6"/>
                             <constraint firstItem="bAS-M8-cEe" firstAttribute="leading" secondItem="bgU-6A-u4v" secondAttribute="leading" constant="20" id="Y9t-5f-Aqt"/>
+                            <constraint firstItem="Myt-Ph-yMr" firstAttribute="top" secondItem="bAS-M8-cEe" secondAttribute="bottom" constant="10" id="dtD-Ei-huM"/>
                             <constraint firstItem="U4N-py-oRz" firstAttribute="top" secondItem="bgU-6A-u4v" secondAttribute="top" id="jd3-st-pTz"/>
                             <constraint firstItem="bgU-6A-u4v" firstAttribute="trailing" secondItem="U4N-py-oRz" secondAttribute="trailing" id="otQ-PE-NE0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Myt-Ph-yMr" id="MP5-Zf-gCh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvJ-9s-A5M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,13 +9,18 @@ import UIKit
 
 class HomeController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    let items = ["Item 1", "Item2", "Item3", "Item4"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskTableViewCell")
     }
     
-
+    
     /*
     // MARK: - Navigation
 
