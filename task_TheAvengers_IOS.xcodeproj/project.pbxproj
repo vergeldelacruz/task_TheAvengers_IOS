@@ -14,6 +14,7 @@
 		23F9DA0D279A319A00B61768 /* task_TheAvengers_IOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23F9DA0B279A319A00B61768 /* task_TheAvengers_IOS.xcdatamodeld */; };
 		23F9DA0F279A319B00B61768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F9DA0E279A319B00B61768 /* Assets.xcassets */; };
 		23F9DA12279A319B00B61768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F9DA10279A319B00B61768 /* LaunchScreen.storyboard */; };
+		CF88BA1C279A42B40071199C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88BA1B279A42B40071199C /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		23F9DA0E279A319B00B61768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23F9DA11279A319B00B61768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23F9DA13279A319B00B61768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF88BA1B279A42B40071199C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,7 @@
 			children = (
 				23F9DA02279A319A00B61768 /* AppDelegate.swift */,
 				23F9DA04279A319A00B61768 /* SceneDelegate.swift */,
-				23F9DA06279A319A00B61768 /* ViewController.swift */,
+				CF88BA1D279A42EC0071199C /* controllers */,
 				23F9DA08279A319A00B61768 /* Main.storyboard */,
 				23F9DA0E279A319B00B61768 /* Assets.xcassets */,
 				23F9DA10279A319B00B61768 /* LaunchScreen.storyboard */,
@@ -68,6 +70,15 @@
 				23F9DA0B279A319A00B61768 /* task_TheAvengers_IOS.xcdatamodeld */,
 			);
 			path = task_TheAvengers_IOS;
+			sourceTree = "<group>";
+		};
+		CF88BA1D279A42EC0071199C /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				23F9DA06279A319A00B61768 /* ViewController.swift */,
+				CF88BA1B279A42B40071199C /* HomeController.swift */,
+			);
+			path = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +156,7 @@
 				23F9DA03279A319A00B61768 /* AppDelegate.swift in Sources */,
 				23F9DA05279A319A00B61768 /* SceneDelegate.swift in Sources */,
 				23F9DA0D279A319A00B61768 /* task_TheAvengers_IOS.xcdatamodeld in Sources */,
+				CF88BA1C279A42B40071199C /* HomeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +233,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -276,7 +288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -295,11 +307,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = task_TheAvengers_IOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = task_TheAvengers_IOS;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,11 +336,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = task_TheAvengers_IOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = task_TheAvengers_IOS;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
