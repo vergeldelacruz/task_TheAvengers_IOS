@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23870159279B06D200F86375 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23870158279B06D200F86375 /* CategoryController.swift */; };
 		23F9DA03279A319A00B61768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9DA02279A319A00B61768 /* AppDelegate.swift */; };
 		23F9DA05279A319A00B61768 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9DA04279A319A00B61768 /* SceneDelegate.swift */; };
 		23F9DA07279A319A00B61768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9DA06279A319A00B61768 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23870158279B06D200F86375 /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
 		23F9D9FF279A319A00B61768 /* task_TheAvengers_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = task_TheAvengers_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F9DA02279A319A00B61768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23F9DA04279A319A00B61768 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				23F9DA10279A319B00B61768 /* LaunchScreen.storyboard */,
 				23F9DA13279A319B00B61768 /* Info.plist */,
 				23F9DA0B279A319A00B61768 /* task_TheAvengers_IOS.xcdatamodeld */,
+				23870158279B06D200F86375 /* CategoryController.swift */,
 			);
 			path = task_TheAvengers_IOS;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23F9DA07279A319A00B61768 /* ViewController.swift in Sources */,
+				23870159279B06D200F86375 /* CategoryController.swift in Sources */,
 				23F9DA03279A319A00B61768 /* AppDelegate.swift in Sources */,
 				23F9DA05279A319A00B61768 /* SceneDelegate.swift in Sources */,
 				23F9DA0D279A319A00B61768 /* task_TheAvengers_IOS.xcdatamodeld in Sources */,
