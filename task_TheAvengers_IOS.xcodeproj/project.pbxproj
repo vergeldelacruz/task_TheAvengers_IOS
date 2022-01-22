@@ -16,6 +16,9 @@
 		23F9DA0F279A319B00B61768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F9DA0E279A319B00B61768 /* Assets.xcassets */; };
 		23F9DA12279A319B00B61768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F9DA10279A319B00B61768 /* LaunchScreen.storyboard */; };
 		CF438065279B849D00CB7A5E /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF438064279B849D00CB7A5E /* AddCategoryViewController.swift */; };
+		CF438067279BA05A00CB7A5E /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF438066279BA05A00CB7A5E /* CategoriesViewController.swift */; };
+		CF43806A279BA12000CB7A5E /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF438068279BA12000CB7A5E /* CategoryTableViewCell.swift */; };
+		CF43806B279BA12000CB7A5E /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF438069279BA12000CB7A5E /* CategoryTableViewCell.xib */; };
 		CF88BA1C279A42B40071199C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88BA1B279A42B40071199C /* HomeController.swift */; };
 		CFAA8E75279A80A5003384B1 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAA8E73279A80A4003384B1 /* TaskTableViewCell.swift */; };
 		CFAA8E76279A80A5003384B1 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFAA8E74279A80A4003384B1 /* TaskTableViewCell.xib */; };
@@ -33,6 +36,9 @@
 		23F9DA11279A319B00B61768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23F9DA13279A319B00B61768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF438064279B849D00CB7A5E /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
+		CF438066279BA05A00CB7A5E /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		CF438068279BA12000CB7A5E /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		CF438069279BA12000CB7A5E /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		CF88BA1B279A42B40071199C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		CFAA8E73279A80A4003384B1 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		CFAA8E74279A80A4003384B1 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
@@ -82,12 +88,22 @@
 			path = task_TheAvengers_IOS;
 			sourceTree = "<group>";
 		};
+		CF43806C279BA13000CB7A5E /* category */ = {
+			isa = PBXGroup;
+			children = (
+				CF438068279BA12000CB7A5E /* CategoryTableViewCell.swift */,
+				CF438069279BA12000CB7A5E /* CategoryTableViewCell.xib */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
 		CF88BA1D279A42EC0071199C /* controllers */ = {
 			isa = PBXGroup;
 			children = (
 				23F9DA06279A319A00B61768 /* ViewController.swift */,
 				CF88BA1B279A42B40071199C /* HomeController.swift */,
 				CF438064279B849D00CB7A5E /* AddCategoryViewController.swift */,
+				CF438066279BA05A00CB7A5E /* CategoriesViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -97,6 +113,7 @@
 			children = (
 				CFAA8E73279A80A4003384B1 /* TaskTableViewCell.swift */,
 				CFAA8E74279A80A4003384B1 /* TaskTableViewCell.xib */,
+				CF43806C279BA13000CB7A5E /* category */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -160,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFAA8E76279A80A5003384B1 /* TaskTableViewCell.xib in Resources */,
+				CF43806B279BA12000CB7A5E /* CategoryTableViewCell.xib in Resources */,
 				23F9DA12279A319B00B61768 /* LaunchScreen.storyboard in Resources */,
 				23F9DA0F279A319B00B61768 /* Assets.xcassets in Resources */,
 				23F9DA0A279A319A00B61768 /* Main.storyboard in Resources */,
@@ -175,8 +193,10 @@
 			files = (
 				CF438065279B849D00CB7A5E /* AddCategoryViewController.swift in Sources */,
 				23F9DA07279A319A00B61768 /* ViewController.swift in Sources */,
+				CF438067279BA05A00CB7A5E /* CategoriesViewController.swift in Sources */,
 				23870159279B06D200F86375 /* CategoryController.swift in Sources */,
 				23F9DA03279A319A00B61768 /* AppDelegate.swift in Sources */,
+				CF43806A279BA12000CB7A5E /* CategoryTableViewCell.swift in Sources */,
 				CFAA8E75279A80A5003384B1 /* TaskTableViewCell.swift in Sources */,
 				23F9DA05279A319A00B61768 /* SceneDelegate.swift in Sources */,
 				23F9DA0D279A319A00B61768 /* task_TheAvengers_IOS.xcdatamodeld in Sources */,
