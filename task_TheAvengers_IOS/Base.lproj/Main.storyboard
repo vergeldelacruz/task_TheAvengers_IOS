@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -257,10 +258,131 @@
             </objects>
             <point key="canvasLocation" x="810.76923076923072" y="93.838862559241704"/>
         </scene>
+        <!--Add Category View Controller-->
+        <scene sceneID="Ivh-MZ-uIU">
+            <objects>
+                <viewController id="jEY-GJ-wBT" customClass="AddCategoryViewController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YpX-JL-dIY">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqM-J3-uFx" userLabel="header">
+                                <rect key="frame" x="20" y="64" width="350" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1L-FQ-OOa">
+                                        <rect key="frame" x="9.9999999999999964" y="5" width="44.666666666666657" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="LaV-Sm-vRJ"/>
+                                        </constraints>
+                                        <color key="tintColor" name="primary"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
+                                            <imageReference key="image" image="chevron.backward.circle.fill" catalog="system" symbolScale="large"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BL2-Vt-Rzj">
+                                        <rect key="frame" x="64.666666666666657" y="10.000000000000002" width="118.66666666666666" height="21.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories to manage tasks easily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5l-jA-Fhl">
+                                        <rect key="frame" x="64.666666666666671" y="36.666666666666671" width="193.33333333333331" height="14.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="1tV-bk-Btq"/>
+                                    <constraint firstItem="g1L-FQ-OOa" firstAttribute="top" secondItem="gqM-J3-uFx" secondAttribute="top" constant="5" id="4vo-ap-yXo"/>
+                                    <constraint firstItem="Z5l-jA-Fhl" firstAttribute="leading" secondItem="g1L-FQ-OOa" secondAttribute="trailing" constant="10" id="BPV-ME-5dn"/>
+                                    <constraint firstItem="BL2-Vt-Rzj" firstAttribute="leading" secondItem="g1L-FQ-OOa" secondAttribute="trailing" constant="10" id="MW2-jg-Hk8"/>
+                                    <constraint firstItem="g1L-FQ-OOa" firstAttribute="leading" secondItem="gqM-J3-uFx" secondAttribute="leading" constant="10" id="sno-oC-g2m"/>
+                                    <constraint firstItem="BL2-Vt-Rzj" firstAttribute="top" secondItem="gqM-J3-uFx" secondAttribute="top" constant="10" id="tZx-JH-g8b"/>
+                                    <constraint firstItem="Z5l-jA-Fhl" firstAttribute="top" secondItem="BL2-Vt-Rzj" secondAttribute="bottom" constant="5" id="wtk-og-nOP"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Category name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p9x-bN-evn">
+                                <rect key="frame" x="20" y="144" width="350" height="60"/>
+                                <color key="backgroundColor" name="light-grey"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="IK3-g2-m3T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Znr-eN-U8w">
+                                <rect key="frame" x="20" y="224" width="350" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jh-8x-izF">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="6TR-m3-xAO"/>
+                                        </constraints>
+                                        <color key="tintColor" name="primary"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Categories">
+                                                    <attributes>
+                                                        <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fd-Zy-Hqz">
+                                        <rect key="frame" x="180" y="0.0" width="170" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="hOa-hb-pQe"/>
+                                        </constraints>
+                                        <color key="tintColor" name="primary"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" cornerStyle="large">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Add Category">
+                                                    <attributes>
+                                                        <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="jR8-cO-dAv"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Oge-Vs-uAv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Oge-Vs-uAv" firstAttribute="trailing" secondItem="p9x-bN-evn" secondAttribute="trailing" constant="20" id="9HS-Fl-IyP"/>
+                            <constraint firstItem="p9x-bN-evn" firstAttribute="top" secondItem="gqM-J3-uFx" secondAttribute="bottom" constant="20" id="9qY-mV-G4J"/>
+                            <constraint firstItem="Znr-eN-U8w" firstAttribute="top" secondItem="p9x-bN-evn" secondAttribute="bottom" constant="20" id="NV2-Fr-h23"/>
+                            <constraint firstItem="gqM-J3-uFx" firstAttribute="top" secondItem="Oge-Vs-uAv" secondAttribute="top" constant="20" id="ODH-VD-nhL"/>
+                            <constraint firstItem="Oge-Vs-uAv" firstAttribute="trailing" secondItem="Znr-eN-U8w" secondAttribute="trailing" constant="20" id="gsf-za-x33"/>
+                            <constraint firstItem="Oge-Vs-uAv" firstAttribute="trailing" secondItem="gqM-J3-uFx" secondAttribute="trailing" constant="20" id="jrr-fL-uax"/>
+                            <constraint firstItem="p9x-bN-evn" firstAttribute="leading" secondItem="Oge-Vs-uAv" secondAttribute="leading" constant="20" id="nR5-Em-8iB"/>
+                            <constraint firstItem="Znr-eN-U8w" firstAttribute="leading" secondItem="Oge-Vs-uAv" secondAttribute="leading" constant="20" id="nYU-AA-XCi"/>
+                            <constraint firstItem="gqM-J3-uFx" firstAttribute="leading" secondItem="Oge-Vs-uAv" secondAttribute="leading" constant="20" id="tzx-jK-4K5"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mKq-Ar-btc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1510.7692307692307" y="93.838862559241704"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
         <image name="bg" width="2000" height="2000"/>
+        <image name="chevron.backward.circle.fill" catalog="system" width="128" height="121"/>
         <image name="line.3.horizontal.decrease" catalog="system" width="128" height="73"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <namedColor name="light-grey">
