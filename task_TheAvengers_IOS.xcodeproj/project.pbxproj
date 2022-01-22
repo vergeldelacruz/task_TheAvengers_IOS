@@ -15,6 +15,7 @@
 		23F9DA0D279A319A00B61768 /* task_TheAvengers_IOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23F9DA0B279A319A00B61768 /* task_TheAvengers_IOS.xcdatamodeld */; };
 		23F9DA0F279A319B00B61768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F9DA0E279A319B00B61768 /* Assets.xcassets */; };
 		23F9DA12279A319B00B61768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F9DA10279A319B00B61768 /* LaunchScreen.storyboard */; };
+		43410111279BB54400095016 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43410110279BB54400095016 /* AddTaskViewController.swift */; };
 		CF438065279B849D00CB7A5E /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF438064279B849D00CB7A5E /* AddCategoryViewController.swift */; };
 		CF438067279BA05A00CB7A5E /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF438066279BA05A00CB7A5E /* CategoriesViewController.swift */; };
 		CF43806A279BA12000CB7A5E /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF438068279BA12000CB7A5E /* CategoryTableViewCell.swift */; };
@@ -35,6 +36,7 @@
 		23F9DA0E279A319B00B61768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23F9DA11279A319B00B61768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23F9DA13279A319B00B61768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43410110279BB54400095016 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		CF438064279B849D00CB7A5E /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		CF438066279BA05A00CB7A5E /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		CF438068279BA12000CB7A5E /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				CF88BA1B279A42B40071199C /* HomeController.swift */,
 				CF438064279B849D00CB7A5E /* AddCategoryViewController.swift */,
 				CF438066279BA05A00CB7A5E /* CategoriesViewController.swift */,
+				43410110279BB54400095016 /* AddTaskViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				23870159279B06D200F86375 /* CategoryController.swift in Sources */,
 				23F9DA03279A319A00B61768 /* AppDelegate.swift in Sources */,
 				CF43806A279BA12000CB7A5E /* CategoryTableViewCell.swift in Sources */,
+				43410111279BB54400095016 /* AddTaskViewController.swift in Sources */,
 				CFAA8E75279A80A5003384B1 /* TaskTableViewCell.swift in Sources */,
 				23F9DA05279A319A00B61768 /* SceneDelegate.swift in Sources */,
 				23F9DA0D279A319A00B61768 /* task_TheAvengers_IOS.xcdatamodeld in Sources */,
