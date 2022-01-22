@@ -19,6 +19,7 @@
 		CF438067279BA05A00CB7A5E /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF438066279BA05A00CB7A5E /* CategoriesViewController.swift */; };
 		CF43806A279BA12000CB7A5E /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF438068279BA12000CB7A5E /* CategoryTableViewCell.swift */; };
 		CF43806B279BA12000CB7A5E /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF438069279BA12000CB7A5E /* CategoryTableViewCell.xib */; };
+		CF43806E279BA3FF00CB7A5E /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF43806D279BA3FF00CB7A5E /* AddTaskViewController.swift */; };
 		CF88BA1C279A42B40071199C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88BA1B279A42B40071199C /* HomeController.swift */; };
 		CFAA8E75279A80A5003384B1 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAA8E73279A80A4003384B1 /* TaskTableViewCell.swift */; };
 		CFAA8E76279A80A5003384B1 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFAA8E74279A80A4003384B1 /* TaskTableViewCell.xib */; };
@@ -39,6 +40,7 @@
 		CF438066279BA05A00CB7A5E /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		CF438068279BA12000CB7A5E /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		CF438069279BA12000CB7A5E /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		CF43806D279BA3FF00CB7A5E /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		CF88BA1B279A42B40071199C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		CFAA8E73279A80A4003384B1 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		CFAA8E74279A80A4003384B1 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				CF88BA1B279A42B40071199C /* HomeController.swift */,
 				CF438064279B849D00CB7A5E /* AddCategoryViewController.swift */,
 				CF438066279BA05A00CB7A5E /* CategoriesViewController.swift */,
+				CF43806D279BA3FF00CB7A5E /* AddTaskViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				23870159279B06D200F86375 /* CategoryController.swift in Sources */,
 				23F9DA03279A319A00B61768 /* AppDelegate.swift in Sources */,
 				CF43806A279BA12000CB7A5E /* CategoryTableViewCell.swift in Sources */,
+				CF43806E279BA3FF00CB7A5E /* AddTaskViewController.swift in Sources */,
 				CFAA8E75279A80A5003384B1 /* TaskTableViewCell.swift in Sources */,
 				23F9DA05279A319A00B61768 /* SceneDelegate.swift in Sources */,
 				23F9DA0D279A319A00B61768 /* task_TheAvengers_IOS.xcdatamodeld in Sources */,
