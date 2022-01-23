@@ -20,6 +20,11 @@ class HomeController: UIViewController {
         tableView.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskTableViewCell")
     }
     
+    @IBAction func goToCategories(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AddCategoryController") as! AddCategoryController
+        self.present(nextViewController, animated:true, completion:nil)
+    }
     
     /*
     // MARK: - Navigation

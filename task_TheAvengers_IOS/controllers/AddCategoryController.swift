@@ -73,6 +73,9 @@ class AddCategoryController: UIViewController {
             print(error)
         }
     }
+    @IBAction func goBack(_ sender: Any) {
+        dismiss(animated: true) {}
+    }
 }
 
 extension AddCategoryController : UITableViewDelegate, UITableViewDataSource {
