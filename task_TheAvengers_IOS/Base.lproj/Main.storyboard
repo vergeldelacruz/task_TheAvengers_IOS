@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jEY-GJ-wBT">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -270,7 +270,7 @@
                                 <rect key="frame" x="20" y="64" width="350" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1L-FQ-OOa">
-                                        <rect key="frame" x="9.9999999999999964" y="5" width="44.666666666666657" height="50"/>
+                                        <rect key="frame" x="10.000000000000004" y="5" width="45.333333333333343" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="LaV-Sm-vRJ"/>
                                         </constraints>
@@ -281,13 +281,13 @@
                                         </buttonConfiguration>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BL2-Vt-Rzj">
-                                        <rect key="frame" x="64.666666666666657" y="10.000000000000002" width="118.66666666666666" height="21.666666666666671"/>
+                                        <rect key="frame" x="65.333333333333314" y="10.000000000000002" width="118.66666666666669" height="21.666666666666671"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories to manage tasks easily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5l-jA-Fhl">
-                                        <rect key="frame" x="64.666666666666671" y="36.666666666666671" width="193.33333333333331" height="14.333333333333336"/>
+                                        <rect key="frame" x="65.333333333333329" y="36.666666666666671" width="193.33333333333337" height="14.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -304,75 +304,55 @@
                                     <constraint firstItem="Z5l-jA-Fhl" firstAttribute="top" secondItem="BL2-Vt-Rzj" secondAttribute="bottom" constant="5" id="wtk-og-nOP"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Category name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p9x-bN-evn">
-                                <rect key="frame" x="20" y="144" width="350" height="60"/>
-                                <color key="backgroundColor" name="light-grey"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="IK3-g2-m3T"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="name"/>
-                            </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Znr-eN-U8w">
-                                <rect key="frame" x="20" y="224" width="350" height="60"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hg7-c5-b00" userLabel="search-filters">
+                                <rect key="frame" x="24" y="148" width="350" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jh-8x-izF">
-                                        <rect key="frame" x="0.0" y="0.0" width="170" height="60"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wls-6y-fWn">
+                                        <rect key="frame" x="288" y="0.0" width="45.333333333333343" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="6TR-m3-xAO"/>
+                                            <constraint firstAttribute="height" constant="50" id="80h-EV-xxU"/>
                                         </constraints>
                                         <color key="tintColor" name="primary"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Categories">
-                                                    <attributes>
-                                                        <font key="NSFont" size="18" name="Helvetica-Bold"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </buttonConfiguration>
+                                        <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" cornerStyle="large"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fd-Zy-Hqz">
-                                        <rect key="frame" x="180" y="0.0" width="170" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="hOa-hb-pQe"/>
-                                        </constraints>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  Category name" placeholder="Search tasks..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dMs-ZG-3PM">
+                                        <rect key="frame" x="8" y="0.0" width="256" height="50"/>
+                                        <color key="backgroundColor" name="light-grey"/>
                                         <color key="tintColor" name="primary"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" cornerStyle="large">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Add Category">
-                                                    <attributes>
-                                                        <font key="NSFont" size="18" name="Helvetica-Bold"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </buttonConfiguration>
-                                    </button>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="QXO-pP-m64"/>
+                                            <constraint firstAttribute="height" constant="50" id="jjM-Ya-Ss0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="jR8-cO-dAv"/>
+                                    <constraint firstItem="Wls-6y-fWn" firstAttribute="leading" secondItem="dMs-ZG-3PM" secondAttribute="trailing" constant="24" id="i9t-zo-NFE"/>
                                 </constraints>
-                            </stackView>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wl6-Vy-5eG">
+                                <rect key="frame" x="24" y="206" width="346" height="580"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Oge-Vs-uAv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Oge-Vs-uAv" firstAttribute="trailing" secondItem="p9x-bN-evn" secondAttribute="trailing" constant="20" id="9HS-Fl-IyP"/>
-                            <constraint firstItem="p9x-bN-evn" firstAttribute="top" secondItem="gqM-J3-uFx" secondAttribute="bottom" constant="20" id="9qY-mV-G4J"/>
-                            <constraint firstItem="Znr-eN-U8w" firstAttribute="top" secondItem="p9x-bN-evn" secondAttribute="bottom" constant="20" id="NV2-Fr-h23"/>
+                            <constraint firstItem="Hg7-c5-b00" firstAttribute="leading" secondItem="Oge-Vs-uAv" secondAttribute="leading" constant="24" id="Fwb-HE-7xa"/>
                             <constraint firstItem="gqM-J3-uFx" firstAttribute="top" secondItem="Oge-Vs-uAv" secondAttribute="top" constant="20" id="ODH-VD-nhL"/>
-                            <constraint firstItem="Oge-Vs-uAv" firstAttribute="trailing" secondItem="Znr-eN-U8w" secondAttribute="trailing" constant="20" id="gsf-za-x33"/>
+                            <constraint firstItem="Hg7-c5-b00" firstAttribute="top" secondItem="gqM-J3-uFx" secondAttribute="bottom" constant="24" id="SEK-sh-AJf"/>
                             <constraint firstItem="Oge-Vs-uAv" firstAttribute="trailing" secondItem="gqM-J3-uFx" secondAttribute="trailing" constant="20" id="jrr-fL-uax"/>
-                            <constraint firstItem="p9x-bN-evn" firstAttribute="leading" secondItem="Oge-Vs-uAv" secondAttribute="leading" constant="20" id="nR5-Em-8iB"/>
-                            <constraint firstItem="Znr-eN-U8w" firstAttribute="leading" secondItem="Oge-Vs-uAv" secondAttribute="leading" constant="20" id="nYU-AA-XCi"/>
                             <constraint firstItem="gqM-J3-uFx" firstAttribute="leading" secondItem="Oge-Vs-uAv" secondAttribute="leading" constant="20" id="tzx-jK-4K5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="wl6-Vy-5eG" id="G8k-B1-Q9Y"/>
+                        <outlet property="txvCategoryName" destination="dMs-ZG-3PM" id="BVS-Wy-izS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mKq-Ar-btc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -609,7 +589,7 @@
                                 <rect key="frame" x="20" y="64" width="350" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5o5-pc-aVb">
-                                        <rect key="frame" x="9.9999999999999964" y="5" width="44.666666666666657" height="50"/>
+                                        <rect key="frame" x="10.000000000000004" y="5" width="45.333333333333343" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="DJs-Dm-FyH"/>
                                         </constraints>
@@ -620,13 +600,13 @@
                                         </buttonConfiguration>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cooking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Q0-Zl-Otn">
-                                        <rect key="frame" x="64.666666666666686" y="10.000000000000002" width="71.333333333333314" height="21.666666666666671"/>
+                                        <rect key="frame" x="65.333333333333343" y="10.000000000000002" width="71.333333333333343" height="21.666666666666671"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="created on: 2022-01-21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buL-40-rwz">
-                                        <rect key="frame" x="64.666666666666671" y="36.666666666666671" width="134.33333333333331" height="14.333333333333336"/>
+                                        <rect key="frame" x="65.333333333333329" y="36.666666666666671" width="134.33333333333337" height="14.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -850,6 +830,7 @@
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="music.note" catalog="system" width="97" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <namedColor name="danger">
             <color red="0.89411764705882357" green="0.3411764705882353" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

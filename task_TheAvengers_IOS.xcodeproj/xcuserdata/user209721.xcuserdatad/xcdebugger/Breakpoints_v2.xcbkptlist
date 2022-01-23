@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "BC22AA29-D5FD-4F5C-AC4F-960B20B5CECF"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9A9954F-F348-4729-B02E-809C17DF1F07"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "task_TheAvengers_IOS/controllers/AddCategoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "AddCategoryController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "F9A9954F-F348-4729-B02E-809C17DF1F07 - 52623679c0fed0cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "task_TheAvengers_IOS.AddCategoryController.txvCategoryName.getter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "task_TheAvengers_IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user209721/Documents/task_TheAvengers_IOS/task_TheAvengers_IOS/controllers/AddCategoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "F9A9954F-F348-4729-B02E-809C17DF1F07 - fc98d638d1f77450"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "task_TheAvengers_IOS.AddCategoryController.txvCategoryName.setter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "task_TheAvengers_IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user209721/Documents/task_TheAvengers_IOS/task_TheAvengers_IOS/controllers/AddCategoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "F9A9954F-F348-4729-B02E-809C17DF1F07 - a10afa17b3e165da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "task_TheAvengers_IOS.AddCategoryController.txvCategoryName.modify : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "task_TheAvengers_IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user209721/Documents/task_TheAvengers_IOS/task_TheAvengers_IOS/controllers/AddCategoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "F9A9954F-F348-4729-B02E-809C17DF1F07 - 939677ff8dcfa7ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "task_TheAvengers_IOS.AddCategoryController.txvCategoryName.modify : Swift.Optional&lt;__C.UITextField&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "task_TheAvengers_IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user209721/Documents/task_TheAvengers_IOS/task_TheAvengers_IOS/controllers/AddCategoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "F9A9954F-F348-4729-B02E-809C17DF1F07 - 77060e05ce8f6664"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "task_TheAvengers_IOS.AddCategoryController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; task_TheAvengers_IOS.AddCategoryController"
+                  moduleName = "task_TheAvengers_IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user209721/Documents/task_TheAvengers_IOS/task_TheAvengers_IOS/controllers/AddCategoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "153">
+               </Location>
+               <Location
+                  uuid = "F9A9954F-F348-4729-B02E-809C17DF1F07 - 77ebd74b2b7f80a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "task_TheAvengers_IOS.AddCategoryController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;task_TheAvengers_IOS.AddCategoryController&gt;"
+                  moduleName = "task_TheAvengers_IOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user209721/Documents/task_TheAvengers_IOS/task_TheAvengers_IOS/controllers/AddCategoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "113">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "15AF7137-B84E-4702-B64D-134D6AFEC2FA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "task_TheAvengers_IOS/controllers/AddCategoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "AddCategoryController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30DECE98-8C41-43FF-9213-89F960697A95"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "task_TheAvengers_IOS/controllers/AddCategoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "AddCategoryController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
