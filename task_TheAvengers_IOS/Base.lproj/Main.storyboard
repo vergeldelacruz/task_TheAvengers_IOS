@@ -94,11 +94,11 @@
             <objects>
                 <viewController storyboardIdentifier="HomeController" id="SII-Vw-JeX" customClass="HomeController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qb0-eX-LUq">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4N-py-oRz" userLabel="header">
-                                <rect key="frame" x="0.0" y="44" width="390" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjD-lG-bmG" userLabel="title">
                                         <rect key="frame" x="20" y="10" width="350" height="24"/>
@@ -125,7 +125,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAS-M8-cEe" userLabel="search-filters">
-                                <rect key="frame" x="20" y="124" width="350" height="50"/>
+                                <rect key="frame" x="20" y="80" width="350" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVP-78-Nmd">
                                         <rect key="frame" x="304.66666666666669" y="0.0" width="45.333333333333314" height="50"/>
@@ -190,11 +190,11 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Myt-Ph-yMr">
-                                <rect key="frame" x="20" y="184" width="350" height="571"/>
+                                <rect key="frame" x="20" y="140" width="350" height="561"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gSj-Hj-eHC" userLabel="footer-buttons">
-                                <rect key="frame" x="20" y="769" width="350" height="50"/>
+                                <rect key="frame" x="20" y="715" width="350" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4e-yR-PBn">
                                         <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="50"/>
@@ -250,6 +250,7 @@
                             <constraint firstItem="bgU-6A-u4v" firstAttribute="trailing" secondItem="U4N-py-oRz" secondAttribute="trailing" id="otQ-PE-NE0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ONL-Kz-uhX"/>
                     <connections>
                         <outlet property="tableView" destination="Myt-Ph-yMr" id="MP5-Zf-gCh"/>
                     </connections>
@@ -279,6 +280,9 @@
                                         <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
                                             <imageReference key="image" image="chevron.backward.circle.fill" catalog="system" symbolScale="large"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="SII-Vw-JeX" kind="show" id="iRd-jA-H2M"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BL2-Vt-Rzj">
                                         <rect key="frame" x="65.333333333333314" y="10.000000000000002" width="118.66666666666669" height="21.666666666666671"/>
@@ -304,58 +308,54 @@
                                     <constraint firstItem="Z5l-jA-Fhl" firstAttribute="top" secondItem="BL2-Vt-Rzj" secondAttribute="bottom" constant="5" id="wtk-og-nOP"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CeZ-RR-qHg">
-                                <rect key="frame" x="15" y="148" width="273.33333333333331" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="198" translatesAutoresizingMaskIntoConstraints="NO" id="CeZ-RR-qHg">
+                                <rect key="frame" x="15" y="148" width="220" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category Name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dMs-ZG-3PM">
                                         <rect key="frame" x="0.0" y="0.0" width="220" height="50"/>
                                         <color key="backgroundColor" name="light-grey"/>
                                         <color key="tintColor" name="primary"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="WOU-22-wmm"/>
                                             <constraint firstAttribute="height" constant="50" id="jjM-Ya-Ss0"/>
-                                            <constraint firstAttribute="width" constant="220" id="kUd-ga-Pah"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gY-Cw-Qqi">
-                                        <rect key="frame" x="230" y="0.0" width="43.333333333333314" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="XUX-xm-Po0"/>
-                                        </constraints>
-                                        <color key="tintColor" name="primary"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" cornerStyle="large"/>
-                                        <connections>
-                                            <action selector="onAddCategory:" destination="jEY-GJ-wBT" eventType="touchUpInside" id="cw3-PG-ZOe"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wl6-Vy-5eG">
-                                <rect key="frame" x="0.0" y="222" width="390" height="569"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wl6-Vy-5eG">
+                                <rect key="frame" x="10" y="218" width="370" height="582"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Ova-v1-8h0" customClass="CategoryTableViewCell" customModule="task_TheAvengers_IOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ova-v1-8h0" id="vEA-Ob-hAD">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFT-SG-jvl">
+                                <rect key="frame" x="245" y="148" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="VUg-4b-AIs"/>
+                                    <constraint firstAttribute="height" constant="50" id="oOD-zZ-9B3"/>
+                                </constraints>
+                                <color key="tintColor" name="primary"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="onAddCategory:" destination="jEY-GJ-wBT" eventType="touchUpInside" id="F2y-0c-ev5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Oge-Vs-uAv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="jFT-SG-jvl" firstAttribute="top" secondItem="gqM-J3-uFx" secondAttribute="bottom" constant="24" id="7pU-PK-GLU"/>
+                            <constraint firstItem="wl6-Vy-5eG" firstAttribute="leading" secondItem="Oge-Vs-uAv" secondAttribute="leading" constant="10" id="AUH-TL-Zrz"/>
+                            <constraint firstItem="jFT-SG-jvl" firstAttribute="leading" secondItem="CeZ-RR-qHg" secondAttribute="trailing" constant="10" id="DQc-gb-KKn"/>
                             <constraint firstItem="CeZ-RR-qHg" firstAttribute="top" secondItem="gqM-J3-uFx" secondAttribute="bottom" constant="24" id="HFy-u6-21d"/>
                             <constraint firstItem="CeZ-RR-qHg" firstAttribute="leading" secondItem="Oge-Vs-uAv" secondAttribute="leading" constant="15" id="Lve-ID-dAq"/>
                             <constraint firstItem="gqM-J3-uFx" firstAttribute="top" secondItem="Oge-Vs-uAv" secondAttribute="top" constant="20" id="ODH-VD-nhL"/>
                             <constraint firstItem="Oge-Vs-uAv" firstAttribute="trailing" secondItem="gqM-J3-uFx" secondAttribute="trailing" constant="20" id="jrr-fL-uax"/>
+                            <constraint firstItem="wl6-Vy-5eG" firstAttribute="top" secondItem="CeZ-RR-qHg" secondAttribute="bottom" constant="20" id="ngO-4f-mtj"/>
                             <constraint firstItem="gqM-J3-uFx" firstAttribute="leading" secondItem="Oge-Vs-uAv" secondAttribute="leading" constant="20" id="tzx-jK-4K5"/>
+                            <constraint firstAttribute="trailing" secondItem="wl6-Vy-5eG" secondAttribute="trailing" constant="10" id="y2f-ey-JHD"/>
+                            <constraint firstItem="Oge-Vs-uAv" firstAttribute="bottom" secondItem="wl6-Vy-5eG" secondAttribute="bottom" constant="10" id="zRa-TB-Qju"/>
                         </constraints>
                     </view>
                     <connections>
@@ -367,6 +367,7 @@
             </objects>
             <point key="canvasLocation" x="1510.7692307692307" y="93.838862559241704"/>
         </scene>
+        <!--Add Task View Controller-->
         <scene sceneID="Z5p-TD-5IG">
             <objects>
                 <viewController id="e65-Do-CRA" customClass="AddTaskViewController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
