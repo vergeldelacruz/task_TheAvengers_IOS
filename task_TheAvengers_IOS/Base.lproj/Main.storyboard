@@ -446,10 +446,10 @@
             </objects>
             <point key="canvasLocation" x="2205" y="94"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Task View Controller-->
         <scene sceneID="Z5p-TD-5IG">
             <objects>
-                <viewController id="e65-Do-CRA" sceneMemberID="viewController">
+                <viewController id="e65-Do-CRA" customClass="AddTaskViewController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gKq-Vc-blQ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -597,10 +597,10 @@
             </objects>
             <point key="canvasLocation" x="2885" y="94"/>
         </scene>
-        <!--View Controller-->
+        <!--Task Details View Controller-->
         <scene sceneID="srd-7t-JaG">
             <objects>
-                <viewController id="bwi-CF-fe4" sceneMemberID="viewController">
+                <viewController id="bwi-CF-fe4" customClass="TaskDetailsViewController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oaz-dh-CTK">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
