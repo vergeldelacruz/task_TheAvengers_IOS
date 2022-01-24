@@ -729,6 +729,21 @@
                                     <action selector="addSubTask:" destination="bwi-CF-fe4" eventType="touchUpInside" id="3R0-1P-sqx"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gBO-NF-6Ci">
+                                <rect key="frame" x="16" y="611" width="358" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sub_task_cell" id="iAv-pd-rvi">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="358" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iAv-pd-rvi" id="zas-Wp-Sdb">
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R6a-cH-pVb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -762,15 +777,17 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addSubTask" destination="cgs-u0-Co8" id="bF5-Rv-rh6"/>
+                        <outlet property="subTaskTV" destination="gBO-NF-6Ci" id="4J1-kS-kV5"/>
                         <outlet property="taskCreatedDate" destination="buL-40-rwz" id="nng-DB-WaY"/>
                         <outlet property="taskDesc" destination="5eC-h1-qjc" id="V9Q-k4-dwl"/>
                         <outlet property="taskImg" destination="ndm-Gb-eB8" id="mcn-JU-Mgl"/>
-                        <outlet property="tasktitle" destination="6Q0-Zl-Otn" id="pZY-5W-uRk"/>
+                        <outlet property="taskName" destination="6Q0-Zl-Otn" id="Qac-Br-XUh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9p-kG-uTG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2874" y="89"/>
+            <point key="canvasLocation" x="2873.8461538461538" y="88.862559241706151"/>
         </scene>
     </scenes>
     <resources>
