@@ -16,7 +16,7 @@ class TaskDetailsViewController: UIViewController {
     @IBOutlet weak var taskCreatedDate: UILabel!
     @IBOutlet weak var taskImg: UIImageView!
     
-    @IBOutlet weak var subTaskTV: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addSubTask: UITextField!
     
 
@@ -28,21 +28,21 @@ class TaskDetailsViewController: UIViewController {
     
     var selectedTask : Task?{
         didSet{
-          //loadSubTasks()
+          loadNotes()
         }
         
     }
-    
-    
+    //context
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+            
+        loadNotes()
         setUpTableView()
-    
-        initializeCoreData()
-      
+
         
         
     }
@@ -59,13 +59,25 @@ class TaskDetailsViewController: UIViewController {
             let folderName = self.subTasks.map{$0.title?.lowercased()}
             //prevent the user to add identical names
             guard !folderName.contains(addSubTask.text?.lowercased()) else { self.showAlert(); return}
-            let newFolder = SubTask(context: self.taskContext)
+            let newFolder = SubTask(context: self.context)
             newFolder.title = addSubTask.text!
-        
-            initializeCoreData()
-            subTaskTV.reloadData()
+            self.saveTodos()
+            self.updateNotes(with: newFolder.title!)
+            //self.subTasks.append(newFolder)
+           
+            tableView.reloadData()
         }
     }
+    
+    //   to be shown if user enters existing category name
+        func showAlert() {
+            let alert = UIAlertController(title: "Category with same name already Exists!", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+
+        }
+    
+    
    
     /*
     // MARK: - Navigation
@@ -91,101 +103,71 @@ class TaskDetailsViewController: UIViewController {
                 return true
             }
         }
-}
-
-//MARK: core data methods implemented
-extension TaskDetailsViewController {
     
     
-    func initializeCoreData() {
-        print("initialized")
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        taskContext = appDelegate.persistentContainer.viewContext
+    //MARK: Core Data Implementation
+    private func loadNotes(){
+        let request : NSFetchRequest<SubTask> = SubTask.fetchRequest()
         
-        fetchCategoryData()
+         //let folderPredicate = NSPredicate(format: "parentTask.title=%@", //selectedTask!.title!)
+        let folderPredicate = NSPredicate(format: "parentTask.title=%@", "")
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        request.predicate = folderPredicate
         
-    }
-    
-//    Initializes a default archived folder
-    func firstTimeSetup() {
-        let subTaskNames = self.subTasks.map {$0.title}
-        guard !subTaskNames.contains("Archived") else {return}
-        let newSubTask = SubTask(context: self.taskContext)
-        newSubTask.title = "Archived"
-        self.subTasks.append(newSubTask)
-        do {
-            try taskContext.save()
-            subTaskTV.reloadData()
-        } catch {
-            print("Error saving categories \(error.localizedDescription)")
-        }
-    }
-    
-    
-    func fetchCategoryData() {
-//        request
-        let request: NSFetchRequest<SubTask> = SubTask.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
-//        initialize
-        request.sortDescriptors = [sortDescriptor]
-        do {
-            subTasks = try taskContext.fetch(request)
-        } catch {
-            print("Error loading categories: \(error.localizedDescription)")
-        }
-//        data fetched
-        subTaskTV.reloadData()
-        
-    }
-    
-    func addNewSubTask() {
-        
-        let subTaskNames = self.subTasks.map {$0.title}
-        guard !subTaskNames.contains(addSubTask.text) else {self.showAlert(); return}
-        let newSubTask = SubTask(context: self.taskContext)
-        newSubTask.title = addSubTask.text!
-        self.subTasks.append(newSubTask)
-        do {
-            try taskContext.save()
-            subTaskTV.reloadData()
-        } catch {
-            print("Error saving categories \(error.localizedDescription)")
+        do{
+            subTasks = try context.fetch(request)
+        }catch{
+            print("Error loading notes...\(error.localizedDescription)")
+            
         }
         
-    }
-    
-//    to be shown if user enters existing category name
-    func showAlert() {
-        let alert = UIAlertController(title: "Category with same name already Exists!", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-
-    }
-   
-    /*
-    func deleteSubTaskFromList(){
-          taskContext.delete(selectedTodo!)
-          subTasks.removeAll{(SubTask) -> Bool in
-              SubTask == selectedTodo!
-              
+//        tableView.reloadData()
+      
           }
-          subTaskTV.reloadData()
-      }
-      */
+
+    func deleteNote(note: SubTask){
+        context.delete(note)
+    }
+    
+    func updateNotes(with title: String){
+        subTasks = []
+        let newTask = SubTask(context: context)
+        newTask.title = title
+        newTask.parentTask = selectedTask
+        saveTodos()
+        loadNotes()
+        
+    }
+    
+    func saveTodos() {
+        do {
+            try context.save()
+            
+        } catch {
+            print("Error saving the context \(error.localizedDescription)")
+        }
+        loadNotes()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        selectedTodo = nil
+    }
     
 }
 
+
+
+//MARK: Table view implementation
 extension TaskDetailsViewController: UITableViewDelegate,UITableViewDataSource{
    
     
     //initialize table view
     func setUpTableView(){
-        subTaskTV.delegate = self
-        subTaskTV.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         
         //setup for auto size of cell
-        subTaskTV.estimatedRowHeight = 35
-        subTaskTV.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 35
+        tableView.rowHeight = UITableView.automaticDimension
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -196,37 +178,32 @@ extension TaskDetailsViewController: UITableViewDelegate,UITableViewDataSource{
          let cell = tableView.dequeueReusableCell(withIdentifier: "sub_task_cell", for: indexPath)
         let task = subTasks[indexPath.row]
         cell.textLabel?.text = task.title
-        
-        if task.status == false{
-           
-            cell.imageView?.image = UIImage(systemName: "circle.fill")
-            
-        }
+        cell.imageView?.image = UIImage(systemName: "circle.fill")
+       
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .destructive, title: "Delete") { [self] (action, view, completion) in
-            self.taskContext.delete(self.subTasks[indexPath.row])
-            self.subTasks.remove(at: indexPath.row)
-            //self.selectedTodo = subTasks[indexPath.row]
-           // deleteSubTaskFromList()
-           //addNewCategory()
-            tableView.deleteRows(at: [indexPath], with: .fade)
+           let delete = UIContextualAction(style: .destructive, title: "Delete") { [self] (action, view, completion) in
+               self.context.delete(self.subTasks[indexPath.row])
+               self.subTasks.remove(at: indexPath.row)
+             
+               tableView.deleteRows(at: [indexPath], with: .fade)
+              
+               completion(true)
+           }
            
-            completion(true)
-        }
-        delete.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0, blue: 0.01171393025, alpha: 1)
-        delete.image = UIImage(systemName: "trash.fill")
-        return UISwipeActionsConfiguration(actions: [delete])
-       
-    }
+           delete.image = UIImage(systemName: "trash.fill")
+           return UISwipeActionsConfiguration(actions: [delete])
+          
+       }
+
     
-   
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedTodo = subTasks[indexPath.row]
-        
+      
     }
     
 }

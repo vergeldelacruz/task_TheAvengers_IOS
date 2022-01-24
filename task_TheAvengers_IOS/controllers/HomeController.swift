@@ -23,6 +23,7 @@ class HomeController: UIViewController {
 
         // Do any additional setup after loading the view.
         tableView.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskTableViewCell")
+       
     }
     
     @IBAction func goToCategories(_ sender: Any) {
@@ -40,10 +41,12 @@ class HomeController: UIViewController {
         // Pass the selected object to the new view controller.
         let destination = segue.destination as! TaskDetailsViewController
         if let indexPath = tableView.indexPathForSelectedRow{
-           
+            destination.selectedTask = tasks[indexPath.row]
         }
+        
         
     }
   
 
 }
+
