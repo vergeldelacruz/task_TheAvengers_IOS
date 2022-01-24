@@ -188,7 +188,12 @@ extension TaskDetailsViewController: UITableViewDelegate,UITableViewDataSource{
            let delete = UIContextualAction(style: .destructive, title: "Delete") { [self] (action, view, completion) in
                self.context.delete(self.subTasks[indexPath.row])
                self.subTasks.remove(at: indexPath.row)
-             
+               do {
+                   try self.context.save()
+               } catch {
+                   print(error)
+               }
+               self.loadNotes()
                tableView.deleteRows(at: [indexPath], with: .fade)
               
                completion(true)
@@ -203,6 +208,16 @@ extension TaskDetailsViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedTodo = subTasks[indexPath.row]
+        context.delete(selectedTodo!)
+                  subTasks.removeAll{(SubTask) -> Bool in
+                      SubTask == selectedTodo!
+                     
+                  }
+        saveTodos()
+                  tableView.reloadData()
+        let alert = UIAlertController(title: "Task Completed", message: "", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+               self.present(alert, animated: true, completion: nil)
       
     }
     
