@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23E468C9279DCAA100BDCFE6 /* TaskCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E468C7279DCAA100BDCFE6 /* TaskCategoryTableViewCell.swift */; };
+		23E468CA279DCAA100BDCFE6 /* TaskCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23E468C8279DCAA100BDCFE6 /* TaskCategoryTableViewCell.xib */; };
 		23F9DA03279A319A00B61768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9DA02279A319A00B61768 /* AppDelegate.swift */; };
 		23F9DA05279A319A00B61768 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9DA04279A319A00B61768 /* SceneDelegate.swift */; };
 		23F9DA07279A319A00B61768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9DA06279A319A00B61768 /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23E468C7279DCAA100BDCFE6 /* TaskCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		23E468C8279DCAA100BDCFE6 /* TaskCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		23F9D9FF279A319A00B61768 /* task_TheAvengers_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = task_TheAvengers_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F9DA02279A319A00B61768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23F9DA04279A319A00B61768 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 			children = (
 				CF438068279BA12000CB7A5E /* CategoryTableViewCell.swift */,
 				CF438069279BA12000CB7A5E /* CategoryTableViewCell.xib */,
+				23E468C7279DCAA100BDCFE6 /* TaskCategoryTableViewCell.swift */,
+				23E468C8279DCAA100BDCFE6 /* TaskCategoryTableViewCell.xib */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -180,6 +186,7 @@
 				CF43806B279BA12000CB7A5E /* CategoryTableViewCell.xib in Resources */,
 				23F9DA12279A319B00B61768 /* LaunchScreen.storyboard in Resources */,
 				23F9DA0F279A319B00B61768 /* Assets.xcassets in Resources */,
+				23E468CA279DCAA100BDCFE6 /* TaskCategoryTableViewCell.xib in Resources */,
 				23F9DA0A279A319A00B61768 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +200,7 @@
 			files = (
 				CF438065279B849D00CB7A5E /* AddCategoryController.swift in Sources */,
 				23F9DA07279A319A00B61768 /* ViewController.swift in Sources */,
+				23E468C9279DCAA100BDCFE6 /* TaskCategoryTableViewCell.swift in Sources */,
 				23F9DA03279A319A00B61768 /* AppDelegate.swift in Sources */,
 				CF43806A279BA12000CB7A5E /* CategoryTableViewCell.swift in Sources */,
 				CF43806E279BA3FF00CB7A5E /* AddTaskViewController.swift in Sources */,
