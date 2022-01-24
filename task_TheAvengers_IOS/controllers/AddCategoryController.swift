@@ -15,16 +15,15 @@ class AddCategoryController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var txvCategoryName: UITextField!
-    //var items : [Category]?
+
     var items = [Category]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: "TaskCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskCategoryTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
-        //addCategory(name: "School")
         fetchCategories()
     }
     
@@ -50,6 +49,7 @@ class AddCategoryController: UIViewController {
         alert.addAction(okButton)
         self.present(alert,animated: true,completion: nil)
     }
+
     func addCategory(name:String) {
         let newCategory = Category(context: self.context)
         newCategory.name = name
@@ -73,21 +73,45 @@ class AddCategoryController: UIViewController {
             print(error)
         }
     }
+
     @IBAction func goBack(_ sender: Any) {
         dismiss(animated: true) {}
     }
 }
 
 extension AddCategoryController : UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    /*
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }*/
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCategoryTableViewCell", for: indexPath) as! TaskCategoryTableViewCell
         let category =  self.items[indexPath.row]
-        cell.textLabel?.text = category.name
+        cell.lblCategoryName.text = category.name
+        cell.controller = self
+        
+        //cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 10
+        //cell.clipsToBounds = true
+        cell.contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+        
         return cell
+    }
+    func deleteCategory(indexPath: Int) {
+        let categoryToRemove = self.items[indexPath]
+        self.context.delete(categoryToRemove)
+        do {
+            try self.context.save()
+        } catch {
+            print(error)
+        }
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -124,7 +148,11 @@ extension AddCategoryController : UITableViewDelegate, UITableViewDataSource {
             }
             self.fetchCategories()
         }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .default) {
+            (action) in return
+        }
         alert.addAction(saveButton)
+        alert.addAction(cancelButton)
         self.present(alert,animated: true,completion: nil)
     }
 }
