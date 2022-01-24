@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jEY-GJ-wBT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bwi-CF-fe4">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -13,7 +13,7 @@
         <!--Category Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CategoryController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="CategoryController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,7 +92,7 @@
         <!--Home Controller-->
         <scene sceneID="qEY-a8-yuR">
             <objects>
-                <viewController storyboardIdentifier="HomeController" id="SII-Vw-JeX" customClass="HomeController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeController" modalPresentationStyle="fullScreen" id="SII-Vw-JeX" customClass="HomeController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qb0-eX-LUq">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -262,7 +262,7 @@
         <!--Add Category Controller-->
         <scene sceneID="Ivh-MZ-uIU">
             <objects>
-                <viewController id="jEY-GJ-wBT" customClass="AddCategoryController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="jEY-GJ-wBT" customClass="AddCategoryController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YpX-JL-dIY">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -370,7 +370,7 @@
         <!--Add Task View Controller-->
         <scene sceneID="Z5p-TD-5IG">
             <objects>
-                <viewController id="e65-Do-CRA" customClass="AddTaskViewController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="e65-Do-CRA" customClass="AddTaskViewController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gKq-Vc-blQ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -521,7 +521,7 @@
         <!--Task Details View Controller-->
         <scene sceneID="srd-7t-JaG">
             <objects>
-                <viewController id="bwi-CF-fe4" customClass="TaskDetailsViewController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="bwi-CF-fe4" customClass="TaskDetailsViewController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oaz-dh-CTK">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -539,6 +539,10 @@
                                         <buttonConfiguration key="configuration" style="tinted" cornerStyle="large">
                                             <imageReference key="image" image="chevron.backward.circle.fill" catalog="system" symbolScale="large"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="goBack:" destination="bwi-CF-fe4" eventType="touchUpInside" id="KqP-TC-hjy"/>
+                                            <segue destination="SII-Vw-JeX" kind="show" identifier="goBack" id="dWL-Sf-jdx"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cooking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Q0-Zl-Otn">
                                         <rect key="frame" x="65.333333333333343" y="10.000000000000002" width="71.333333333333343" height="21.666666666666671"/>
@@ -720,6 +724,9 @@
                                 <color key="tintColor" name="primary"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="plus.app.fill" catalog="system" cornerStyle="large"/>
+                                <connections>
+                                    <action selector="addSubTask:" destination="bwi-CF-fe4" eventType="touchUpInside" id="3R0-1P-sqx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R6a-cH-pVb"/>
@@ -753,6 +760,12 @@
                             <constraint firstItem="pZd-PA-hb4" firstAttribute="top" secondItem="LXe-kI-YFr" secondAttribute="bottom" constant="20" id="zbj-WZ-emr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="taskCreatedDate" destination="buL-40-rwz" id="nng-DB-WaY"/>
+                        <outlet property="taskDesc" destination="5eC-h1-qjc" id="V9Q-k4-dwl"/>
+                        <outlet property="taskImg" destination="ndm-Gb-eB8" id="mcn-JU-Mgl"/>
+                        <outlet property="tasktitle" destination="6Q0-Zl-Otn" id="pZY-5W-uRk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9p-kG-uTG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
