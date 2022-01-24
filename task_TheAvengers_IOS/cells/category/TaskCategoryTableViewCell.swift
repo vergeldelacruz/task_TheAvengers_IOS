@@ -9,11 +9,15 @@ import UIKit
 
 class TaskCategoryTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var containerWrapper: UIView!
     @IBOutlet weak var lblCategoryName: UILabel!
     var controller: AddCategoryController?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        containerWrapper.layer.cornerRadius = 10
+        containerWrapper.layer.masksToBounds = true
     }
 
     @IBAction func onDelete(_ sender: UIButton) {
