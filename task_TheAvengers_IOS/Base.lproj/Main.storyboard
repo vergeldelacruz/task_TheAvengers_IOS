@@ -440,7 +440,7 @@
         <scene sceneID="Z5p-TD-5IG">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="e65-Do-CRA" customClass="AddTaskViewController" customModule="task_TheAvengers_IOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gKq-Vc-blQ">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="gKq-Vc-blQ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -492,8 +492,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="name"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Task Description" translatesAutoresizingMaskIntoConstraints="NO" id="nma-ja-bv2">
-                                <rect key="frame" x="20" y="369" width="350" height="90"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Task Description" translatesAutoresizingMaskIntoConstraints="NO" id="nma-ja-bv2">
+                                <rect key="frame" x="20" y="427" width="350" height="90"/>
                                 <color key="backgroundColor" name="light-grey"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="3HR-hF-ClX"/>
@@ -502,8 +502,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWI-DQ-eSk">
-                                <rect key="frame" x="20" y="587" width="350" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWI-DQ-eSk">
+                                <rect key="frame" x="16" y="587" width="350" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="PTk-rf-e5j"/>
                                 </constraints>
@@ -516,28 +516,29 @@
                                     <action selector="addtask:" destination="e65-Do-CRA" eventType="touchUpInside" id="Emf-YM-Is8"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AoQ-aR-IMC">
-                                <rect key="frame" x="75" y="682" width="240" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AoQ-aR-IMC">
+                                <rect key="frame" x="24" y="663" width="72" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="IkH-AN-rHA"/>
+                                </constraints>
                             </imageView>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbf-N9-77c">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0fr-eP-vu1">
+                                <rect key="frame" x="116" y="663" width="73" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1jk-h7-WbC">
+                                <rect key="frame" x="213" y="663" width="73" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NhP-4C-eA3">
+                                <rect key="frame" x="301" y="663" width="73" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbf-N9-77c">
                                 <rect key="frame" x="0.0" y="201" width="390" height="160"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fv7-x9-KQF">
-                                <rect key="frame" x="206" y="528" width="164" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Njg-OQ-js2"/>
-                                </constraints>
-                                <color key="tintColor" name="light-grey"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="music.note" catalog="system" imagePlacement="trailing" title="Select Audio  " cornerStyle="large">
-                                    <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="recordAudio:" destination="e65-Do-CRA" eventType="touchUpInside" id="7mp-2s-K1i"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAS-rD-gJ0">
-                                <rect key="frame" x="20" y="529" width="169" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAS-rD-gJ0">
+                                <rect key="frame" x="20" y="497" width="169" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Hyi-iJ-ppx"/>
                                 </constraints>
@@ -548,6 +549,20 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="add:" destination="e65-Do-CRA" eventType="touchUpInside" id="zJU-RH-otH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fv7-x9-KQF">
+                                <rect key="frame" x="210" y="496" width="164" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Njg-OQ-js2"/>
+                                </constraints>
+                                <color key="tintColor" name="light-grey"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="music.note" catalog="system" imagePlacement="trailing" title="Record Audio" cornerStyle="large">
+                                    <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="recordAudio:" destination="e65-Do-CRA" eventType="touchUpInside" id="7mp-2s-K1i"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -588,6 +603,9 @@
                         <outlet property="catPV" destination="Qbf-N9-77c" id="Jcj-FR-QCk"/>
                         <outlet property="desc" destination="nma-ja-bv2" id="aOV-KL-vSF"/>
                         <outlet property="heading" destination="OG5-Hp-tpP" id="SR5-aN-baN"/>
+                        <outlet property="image2" destination="0fr-eP-vu1" id="S6B-Uu-Hii"/>
+                        <outlet property="image3" destination="1jk-h7-WbC" id="lDX-ry-VjY"/>
+                        <outlet property="image4" destination="NhP-4C-eA3" id="4bM-Ka-te7"/>
                         <outlet property="imagee" destination="AoQ-aR-IMC" id="TD5-ax-ox1"/>
                     </connections>
                 </viewController>
