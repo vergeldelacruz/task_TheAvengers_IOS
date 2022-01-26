@@ -109,7 +109,7 @@ class TaskDetailsViewController: UIViewController {
         
          //let folderPredicate = NSPredicate(format: "parentTask.title=%@", //selectedTask!.title!)
         let folderPredicate = NSPredicate(format: "parentTask.title=%@", "")
-        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true),NSSortDescriptor(key: "status", ascending: false)]
         request.predicate = folderPredicate
         
         do{
