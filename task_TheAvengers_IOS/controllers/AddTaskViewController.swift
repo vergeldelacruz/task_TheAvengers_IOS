@@ -91,12 +91,12 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
     
     func setupRecorder()
     {
-        var recordsetting = [AVFormatIDKey: kAudioFormatAppleLossless,
+        let recordsetting = [AVFormatIDKey: kAudioFormatAppleLossless,
                  AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue,
                       AVEncoderBitRateKey: 320000,
                     AVNumberOfChannelsKey: 2,
                            AVSampleRateKey: 44100.0 ] as [String : Any]
-        var error : NSError?
+       
         do{
         soundrecorder = try AVAudioRecorder(url: getFileURL() as URL, settings: recordsetting)
         }catch{
@@ -108,7 +108,7 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
         
     }
     func getcacheDir() -> String{
-        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true) as! [String]
+        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         
         return paths[0]
     }
@@ -174,6 +174,11 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
                         self.imagee.image=image
                         picker.dismiss(animated: true, completion: nil)
                     }}}}
+        
+        
+    
+        
+        
         if let itemprovider = results.first?.itemProvider, itemprovider.canLoadObject(ofClass: UIImage.self)
         { itemprovider.loadObject(ofClass: UIImage.self)
             { [weak self] image, error in
@@ -195,7 +200,7 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
                         self.image3.image=image
                         picker.dismiss(animated: true, completion: nil)
                     }}}}
-        if let itemprovider = results.first?.itemProvider, itemprovider.canLoadObject(ofClass: UIImage.self)
+        if let itemprovider = results.last?.itemProvider, itemprovider.canLoadObject(ofClass: UIImage.self)
         { itemprovider.loadObject(ofClass: UIImage.self)
             { [weak self] image, error in
                 DispatchQueue.main.async {
@@ -206,6 +211,13 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
                         picker.dismiss(animated: true, completion: nil)
                     }}}}
         
+    }
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        let alert=UIAlertController(title: "Audio Recorded", message: nil, preferredStyle:.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {(handler)in
+            
+        }))
+        present(alert,animated: true)
     }
 }
 
