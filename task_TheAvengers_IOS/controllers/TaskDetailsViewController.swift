@@ -15,16 +15,15 @@ class TaskDetailsViewController: UIViewController {
     @IBOutlet weak var taskName: UILabel!
     @IBOutlet weak var taskCreatedDate: UILabel!
     @IBOutlet weak var taskImg: UIImageView!
-    
+    @IBOutlet weak var playAudio: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var addSubTask: UITextField!
+    @IBOutlet weak var subTaskTxt: UITextField!
     
 
     //subTask
-    var subTasks = [SubTask]()
+    var subTasksArray = [SubTask]()
     var taskTit: String!
-    var selectedTodo: SubTask?
-    var taskContext: NSManagedObjectContext!
+    var selectedSubTask: SubTask?
     
     var selectedTask : Task?{
         didSet{
@@ -42,25 +41,24 @@ class TaskDetailsViewController: UIViewController {
             
         loadNotes()
         setUpTableView()
-
-        
         
     }
     
+    //perform back action
     @IBAction func goBack(_ sender: Any) {
         
         performSegue(withIdentifier: "goBack", sender: self)
         
     }
     
-    
+    //adding subtask
     @IBAction func addSubTask(_ sender: Any) {
         if(checkTitle()){
-            let folderName = self.subTasks.map{$0.title?.lowercased()}
+            let folderName = self.subTasksArray.map{$0.title?.lowercased()}
             //prevent the user to add identical names
-            guard !folderName.contains(addSubTask.text?.lowercased()) else { self.showAlert(); return}
+            guard !folderName.contains(subTaskTxt.text?.lowercased()) else { self.showAlert(); return}
             let newFolder = SubTask(context: self.context)
-            newFolder.title = addSubTask.text!
+            newFolder.title = subTaskTxt.text!
             self.saveTodos()
             self.updateNotes(with: newFolder.title!)
             //self.subTasks.append(newFolder)
@@ -93,7 +91,7 @@ class TaskDetailsViewController: UIViewController {
 
     //    method to check weather title is empty or not
         func checkTitle() -> Bool {
-            if (addSubTask.text?.isEmpty ?? true) {
+            if (subTaskTxt.text?.isEmpty ?? true) {
                 let alert = UIAlertController(title: "Enter the Sub Task to Add!", message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
@@ -111,11 +109,11 @@ class TaskDetailsViewController: UIViewController {
         
          //let folderPredicate = NSPredicate(format: "parentTask.title=%@", //selectedTask!.title!)
         let folderPredicate = NSPredicate(format: "parentTask.title=%@", "")
-        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true),NSSortDescriptor(key: "status", ascending: false)]
         request.predicate = folderPredicate
         
         do{
-            subTasks = try context.fetch(request)
+            subTasksArray = try context.fetch(request)
         }catch{
             print("Error loading notes...\(error.localizedDescription)")
             
@@ -130,7 +128,7 @@ class TaskDetailsViewController: UIViewController {
     }
     
     func updateNotes(with title: String){
-        subTasks = []
+        subTasksArray = []
         let newTask = SubTask(context: context)
         newTask.title = title
         newTask.parentTask = selectedTask
@@ -149,7 +147,7 @@ class TaskDetailsViewController: UIViewController {
         loadNotes()
     }
     override func viewWillAppear(_ animated: Bool) {
-        selectedTodo = nil
+        selectedSubTask = nil
     }
     
 }
@@ -171,12 +169,12 @@ extension TaskDetailsViewController: UITableViewDelegate,UITableViewDataSource{
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subTasks.count
+        return subTasksArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "sub_task_cell", for: indexPath)
-        let task = subTasks[indexPath.row]
+        let task = subTasksArray[indexPath.row]
         cell.textLabel?.text = task.title
         cell.imageView?.image = UIImage(systemName: "circle.fill")
        
@@ -186,8 +184,8 @@ extension TaskDetailsViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
            let delete = UIContextualAction(style: .destructive, title: "Delete") { [self] (action, view, completion) in
-               self.context.delete(self.subTasks[indexPath.row])
-               self.subTasks.remove(at: indexPath.row)
+               self.context.delete(self.subTasksArray[indexPath.row])
+               self.subTasksArray.remove(at: indexPath.row)
                do {
                    try self.context.save()
                } catch {
@@ -207,10 +205,10 @@ extension TaskDetailsViewController: UITableViewDelegate,UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedTodo = subTasks[indexPath.row]
-        context.delete(selectedTodo!)
-                  subTasks.removeAll{(SubTask) -> Bool in
-                      SubTask == selectedTodo!
+        selectedSubTask = subTasksArray[indexPath.row]
+        context.delete(selectedSubTask!)
+                  subTasksArray.removeAll{(SubTask) -> Bool in
+                      SubTask == selectedSubTask!
                      
                   }
         saveTodos()

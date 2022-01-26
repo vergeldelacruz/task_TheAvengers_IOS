@@ -871,7 +871,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addSubTask" destination="cgs-u0-Co8" id="bF5-Rv-rh6"/>
+                        <outlet property="playAudio" destination="u3C-Dg-IcI" id="E1f-vx-KA0"/>
+                        <outlet property="subTaskTxt" destination="cgs-u0-Co8" id="bF5-Rv-rh6"/>
                         <outlet property="tableView" destination="gBO-NF-6Ci" id="4J1-kS-kV5"/>
                         <outlet property="taskCreatedDate" destination="buL-40-rwz" id="nng-DB-WaY"/>
                         <outlet property="taskDesc" destination="5eC-h1-qjc" id="V9Q-k4-dwl"/>
