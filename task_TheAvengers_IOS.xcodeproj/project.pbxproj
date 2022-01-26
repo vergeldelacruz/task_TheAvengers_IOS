@@ -78,13 +78,12 @@
 		23F9DA01279A319A00B61768 /* task_TheAvengers_IOS */ = {
 			isa = PBXGroup;
 			children = (
-				CFAA8E72279A807B003384B1 /* cells */,
 				23F9DA02279A319A00B61768 /* AppDelegate.swift */,
-				23F9DA04279A319A00B61768 /* SceneDelegate.swift */,
 				CF88BA1D279A42EC0071199C /* controllers */,
 				23F9DA08279A319A00B61768 /* Main.storyboard */,
 				23F9DA0E279A319B00B61768 /* Assets.xcassets */,
 				23F9DA10279A319B00B61768 /* LaunchScreen.storyboard */,
+				23F9DA04279A319A00B61768 /* SceneDelegate.swift */,
 				23F9DA13279A319B00B61768 /* Info.plist */,
 				23F9DA0B279A319A00B61768 /* task_TheAvengers_IOS.xcdatamodeld */,
 			);
@@ -107,6 +106,7 @@
 			children = (
 				23F9DA06279A319A00B61768 /* ViewController.swift */,
 				CF88BA1B279A42B40071199C /* HomeController.swift */,
+				CFAA8E72279A807B003384B1 /* cells */,
 				CF438064279B849D00CB7A5E /* AddCategoryController.swift */,
 				CF43806D279BA3FF00CB7A5E /* AddTaskViewController.swift */,
 				CF43806F279BA8A700CB7A5E /* TaskDetailsViewController.swift */,
