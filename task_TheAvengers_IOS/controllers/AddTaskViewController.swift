@@ -162,6 +162,7 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
         
         
     }
+    
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         self.imagee.image = nil
         self.image2.image = nil
@@ -204,8 +205,8 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
             }
         }
     }
-    
-    func picker1(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+    /*
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         if let itemprovider = results.first?.itemProvider, itemprovider.canLoadObject(ofClass: UIImage.self)
         { itemprovider.loadObject(ofClass: UIImage.self)
             { [weak self] image, error in
@@ -254,7 +255,7 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
                     }}}}
         
     }
-     
+    */
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         let alert=UIAlertController(title: "Audio Recorded", message: nil, preferredStyle:.alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {(handler)in
