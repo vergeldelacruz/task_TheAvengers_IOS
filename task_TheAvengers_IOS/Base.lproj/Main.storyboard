@@ -516,6 +516,10 @@
                                     <action selector="addtask:" destination="e65-Do-CRA" eventType="touchUpInside" id="Emf-YM-Is8"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kBq-yO-cfO">
+                                <rect key="frame" x="28" y="663" width="73" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0fr-eP-vu1">
                                 <rect key="frame" x="118" y="663" width="73" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -559,10 +563,15 @@
                                     <action selector="recordAudio:" destination="e65-Do-CRA" eventType="touchUpInside" id="7mp-2s-K1i"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kBq-yO-cfO">
-                                <rect key="frame" x="28" y="663" width="73" height="68"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf0-GJ-kz7">
+                                <rect key="frame" x="108" y="760" width="128" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="play"/>
+                                <connections>
+                                    <action selector="playaudio:" destination="e65-Do-CRA" eventType="touchUpInside" id="frU-xX-OqQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X4z-RI-bH7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

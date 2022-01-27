@@ -12,7 +12,7 @@ import CoreData
 import PhotosUI
 import AVFoundation
 
-class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,PHPickerViewControllerDelegate,AVAudioRecorderDelegate{
+class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,PHPickerViewControllerDelegate,AVAudioRecorderDelegate,AVAudioPlayerDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -28,6 +28,7 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
     }
     
     var soundrecorder :  AVAudioRecorder?
+    var soundplayer : AVAudioPlayer?
     var items = [Category]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var filename="testAudio.m4a"
@@ -91,20 +92,25 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
     
     func setupRecorder()
     {
-        let recordsetting = [AVFormatIDKey: kAudioFormatAppleLossless,
-                 AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue,
-                      AVEncoderBitRateKey: 320000,
-                    AVNumberOfChannelsKey: 2,
-                           AVSampleRateKey: 44100.0 ] as [String : Any]
-       
-        do{
-        soundrecorder = try AVAudioRecorder(url: getFileURL() as URL, settings: recordsetting)
-        }catch{
-            
-        return
+        let session = AVAudioSession.sharedInstance()
+        do
+        {
+            try session.setCategory(AVAudioSession.Category.playAndRecord, options: .defaultToSpeaker)
+            try session.setActive(true)
+            let settings = [
+                AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                AVSampleRateKey: 44100,
+                AVNumberOfChannelsKey: 2,
+                AVEncoderAudioQualityKey:AVAudioQuality.high.rawValue
+            ]
+            soundrecorder = try AVAudioRecorder(url: getFileURL() as URL, settings: settings)
+            soundrecorder?.delegate = self
+            soundrecorder?.isMeteringEnabled = true
+            soundrecorder?.prepareToRecord()
         }
-        soundrecorder?.delegate=self
-        soundrecorder?.prepareToRecord()
+        catch let error {
+            display_alert(msg_title: "Error", msg_desc: error.localizedDescription, action_title: "OK")
+        }
         
     }
     func getcacheDir() -> String{
@@ -118,7 +124,39 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
         return filepath
     }
     
-    
+    @IBAction func playaudio(_ sender: UIButton) {
+        if sender.titleLabel?.text == "play"
+        {
+
+            if FileManager.default.fileExists(atPath: getFileURL().path!)
+            {
+             print("playing")
+            sender.setTitle("Stop", for: .normal)
+            preparePlayer()
+            soundplayer?.play()
+            }
+            else
+                   {
+                       display_alert(msg_title: "Error", msg_desc: "Audio file is missing.", action_title: "OK")
+                   }
+        }else{
+            soundplayer?.stop()
+            sender.setTitle("play", for: .normal)
+        }
+    }
+    func preparePlayer(){
+        do{
+        soundplayer=try AVAudioPlayer(contentsOf: getFileURL() as URL)
+            soundplayer?.delegate = self
+            soundplayer?.prepareToPlay()
+            soundplayer?.volume=5.0
+            
+        }catch{
+            print(error.localizedDescription)
+            
+        }
+        
+    }
     
   //MARK: Photos Functions
 
@@ -204,6 +242,19 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
                 }
             }
         }
+    }
+    
+    
+    
+    func display_alert(msg_title : String , msg_desc : String ,action_title : String)
+    {
+        let ac = UIAlertController(title: msg_title, message: msg_desc, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: action_title, style: .default)
+        {
+            (result : UIAlertAction) -> Void in
+        _ = self.navigationController?.popViewController(animated: true)
+        })
+        present(ac, animated: true)
     }
     /*
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
