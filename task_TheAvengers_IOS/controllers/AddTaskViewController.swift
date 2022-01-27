@@ -164,6 +164,49 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
     }
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        self.imagee.image = nil
+        self.image2.image = nil
+        self.image3.image = nil
+        self.image4.image = nil
+        for i in 0..<results.count
+        {
+            let provider = results[i].itemProvider
+            if provider.canLoadObject(ofClass: UIImage.self) {
+                    provider.loadObject(ofClass: UIImage.self) { image, error in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            if i == 0 {
+                                DispatchQueue.main.async {
+                                    self.imagee.image = image as? UIImage
+                                    picker.dismiss(animated: true, completion: nil)
+                                }
+                            } else
+                            if i == 1 {
+                                DispatchQueue.main.async {
+                                    self.image2.image = image as? UIImage
+                                    picker.dismiss(animated: true, completion: nil)
+                                }
+                            } else
+                            if i == 2 {
+                                DispatchQueue.main.async {
+                                    self.image3.image = image as? UIImage
+                                    picker.dismiss(animated: true, completion: nil)
+                                }
+                            } else
+                            if i == 3 {
+                                DispatchQueue.main.async {
+                                    self.image4.image = image as? UIImage
+                                    picker.dismiss(animated: true, completion: nil)
+                                }
+                            }
+                        }
+                }
+            }
+        }
+    }
+    /*
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         if let itemprovider = results.first?.itemProvider, itemprovider.canLoadObject(ofClass: UIImage.self)
         { itemprovider.loadObject(ofClass: UIImage.self)
             { [weak self] image, error in
@@ -212,6 +255,7 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
                     }}}}
         
     }
+    */
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         let alert=UIAlertController(title: "Audio Recorded", message: nil, preferredStyle:.alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {(handler)in
