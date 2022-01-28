@@ -148,11 +148,15 @@ class HomeController: UIViewController {
 //        print(selected_sort)
         // get the tasks based on the category
         let request: NSFetchRequest<Task> = Task.fetchRequest()
+        let statusPredicate = NSPredicate(format: "status = %d", true)
         if(selected_sort == "Sort by date - ASC"){
             request.sortDescriptors = [NSSortDescriptor(key: "createDate", ascending: true)]
         }
         if(selected_sort == "Sort by date - DESC"){
             request.sortDescriptors = [NSSortDescriptor(key: "createDate", ascending: false)]
+        }
+        if(selected_sort == "Show Completed"){
+            request.predicate = statusPredicate
         }
         do {
             tasks = try context.fetch(request)
