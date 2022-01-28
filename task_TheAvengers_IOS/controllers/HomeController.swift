@@ -11,7 +11,7 @@ class HomeController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let items = ["Item 1", "Item2", "Item3", "Item4"]
+    var items = [Task]()
     
     var tasks = [Task]()
     
@@ -23,8 +23,22 @@ class HomeController: UIViewController {
 
         // Do any additional setup after loading the view.
         tableView.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskTableViewCell")
-       
+        fetchtasks()
     }
+    
+    func fetchtasks() {
+        do {
+            self.items = try context.fetch(Task.fetchRequest())
+            for itm in items{
+                print(itm.title)
+                print(itm.desc)
+            }
+        }
+        catch {
+            print(error)
+        }
+    }
+
     
     @IBAction func goToCategories(_ sender: Any) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -36,16 +50,16 @@ class HomeController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        let destination = segue.destination as! TaskDetailsViewController
-        if let indexPath = tableView.indexPathForSelectedRow{
-            destination.selectedTask = tasks[indexPath.row]
-        }
-        
-        
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//        let destination = segue.destination as! TaskDetailsViewController
+//        if let indexPath = tableView.indexPathForSelectedRow{
+//            destination.selectedTask = tasks[indexPath.row]
+//        }
+//
+//
+//    }
   
 
 }

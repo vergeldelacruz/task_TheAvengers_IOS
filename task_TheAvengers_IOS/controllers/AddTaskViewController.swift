@@ -12,45 +12,47 @@ import CoreData
 import PhotosUI
 import AVFoundation
 
-class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerViewDataSource,PHPickerViewControllerDelegate,AVAudioRecorderDelegate,AVAudioPlayerDelegate{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "test"
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-    }
+class AddTaskViewController: UIViewController, PHPickerViewControllerDelegate,AVAudioRecorderDelegate,AVAudioPlayerDelegate{
     
     var soundrecorder :  AVAudioRecorder?
     var soundplayer : AVAudioPlayer?
-    var items = [Category]()
+    var categories = [Category]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var filename="testAudio.m4a"
     
-    @IBOutlet weak var catPV: UIPickerView!
- 
+    
+    @IBOutlet weak var select_category: UITextField!
+    var catPV = UIPickerView()
+    var if_recording: Bool = true;
+    var images = [UIImage]();
+    var selected_category: Category?
+    @IBOutlet weak var show_images_btn: UIButton!
     @IBOutlet weak var image4: UIImageView!
     @IBOutlet weak var image3: UIImageView!
     @IBOutlet weak var image2: UIImageView!
     @IBOutlet weak var heading: UITextField!
     @IBOutlet weak var desc: UITextView!
     @IBOutlet weak var imagee: UIImageView!
+    @IBOutlet weak var play_audio_button: UIButton!
+    @IBOutlet weak var images_modal: UIView!
+    @IBOutlet weak var modal_close_btn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        select_category.inputView = catPV
+        
         catPV.delegate = self
         catPV.dataSource = self
         setupRecorder()
-      fetchCategories()
+        fetchCategories()
+        
+        play_audio_button.alpha = 0.5
+        play_audio_button.isEnabled = false
     }
     
     @IBAction func add(_ sender: Any) {
-        let alert=UIAlertController(title: "Choose Image For your Task", message: nil, preferredStyle:.alert)
+        let alert=UIAlertController(title: "Maximum 4 images only", message: nil, preferredStyle:.alert)
         alert.addAction(UIAlertAction(title: "Take a photo", style: .default, handler: {action in
             self.openCam()
             
@@ -70,19 +72,37 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
         let newtask = Task(context: self.context)
         newtask.createDate = Date()
         newtask.title = heading.text
-       // newtask.description = desc.text
+        newtask.desc = desc.text
+        guard let data = try? Data(contentsOf: getFileURL() as URL) else { return }
+        newtask.audio = data
+        newtask.category = selected_category
+        for img in images{
+            let newImage = Image(context: self.context)
+            newImage.image = img.pngData()
+            newtask.addToImages(newImage)
+        }
+        do {
+            try self.context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
         
     }
     
     //MARK: Audio Func:
-  
     @IBAction func recordAudio(_ sender: UIButton) {
-        if sender.titleLabel?.text == "Record Audio"{
+        if if_recording == true{
             soundrecorder?.record()
-            sender.setTitle("Stop Recording", for: .normal)
+            play_audio_button.setTitle("Recording...", for: .normal)
+            AudioOutlet.setTitle("Stop  ", for: .normal)
+            if_recording = false
         }else{
             soundrecorder?.stop()
-            sender.setTitle("Record Audio", for: .normal)
+            play_audio_button.setTitle("Play Audio", for: .normal)
+            AudioOutlet.setTitle("Record  ", for: .normal)
+            if_recording = true
+            play_audio_button.isEnabled = true
+            play_audio_button.alpha = 1
         }
     
     }
@@ -125,28 +145,27 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
     }
     
     @IBAction func playaudio(_ sender: UIButton) {
-        if sender.titleLabel?.text == "play"
+        if sender.titleLabel?.text == "Play Audio"
         {
 
             if FileManager.default.fileExists(atPath: getFileURL().path!)
             {
-             print("playing")
-            sender.setTitle("Stop", for: .normal)
-            preparePlayer()
-            soundplayer?.play()
+                print("playing")
+                sender.setTitle("Stop Audio", for: .normal)
+                preparePlayer()
+                soundplayer?.play()
             }
-            else
-                   {
-                       display_alert(msg_title: "Error", msg_desc: "Audio file is missing.", action_title: "OK")
-                   }
+            else{
+                display_alert(msg_title: "Error", msg_desc: "Audio file is missing.", action_title: "OK")
+           }
         }else{
             soundplayer?.stop()
-            sender.setTitle("play", for: .normal)
+            sender.setTitle("Play Audio", for: .normal)
         }
     }
     func preparePlayer(){
         do{
-        soundplayer=try AVAudioPlayer(contentsOf: getFileURL() as URL)
+            soundplayer=try AVAudioPlayer(contentsOf: getFileURL() as URL)
             soundplayer?.delegate = self
             soundplayer?.prepareToPlay()
             soundplayer?.volume=5.0
@@ -202,6 +221,7 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
     }
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        images.removeAll()
         self.imagee.image = nil
         self.image2.image = nil
         self.image3.image = nil
@@ -217,24 +237,28 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
                             if i == 0 {
                                 DispatchQueue.main.async {
                                     self.imagee.image = image as? UIImage
+                                    self.images.append(self.imagee.image!)
                                     picker.dismiss(animated: true, completion: nil)
                                 }
                             } else
                             if i == 1 {
                                 DispatchQueue.main.async {
                                     self.image2.image = image as? UIImage
+                                    self.images.append(self.image2.image!)
                                     picker.dismiss(animated: true, completion: nil)
                                 }
                             } else
                             if i == 2 {
                                 DispatchQueue.main.async {
                                     self.image3.image = image as? UIImage
+                                    self.images.append(self.image3.image!)
                                     picker.dismiss(animated: true, completion: nil)
                                 }
                             } else
                             if i == 3 {
                                 DispatchQueue.main.async {
                                     self.image4.image = image as? UIImage
+                                    self.images.append(self.image4.image!)
                                     picker.dismiss(animated: true, completion: nil)
                                 }
                             }
@@ -242,6 +266,24 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
                 }
             }
         }
+        
+        // update the images show button title
+        show_images_btn.setTitle("Images (\(results.count))", for: .normal)
+        // update the show button state
+        show_images_btn.isEnabled = true
+        show_images_btn.alpha = 1
+    }
+    
+    @IBAction func showImages(_ sender: UIButton) {
+        if(sender.isEnabled){
+            images_modal.isHidden = false
+            images_modal.alpha = 1
+        }
+    }
+    
+    @IBAction func closeModal(_ sender: Any) {
+        images_modal.isHidden = true
+        images_modal.alpha = 0
     }
     
     
@@ -256,57 +298,7 @@ class AddTaskViewController: UIViewController ,UIPickerViewDelegate,UIPickerView
         })
         present(ac, animated: true)
     }
-    /*
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        if let itemprovider = results.first?.itemProvider, itemprovider.canLoadObject(ofClass: UIImage.self)
-        { itemprovider.loadObject(ofClass: UIImage.self)
-            { [weak self] image, error in
-                DispatchQueue.main.async {
-                    guard let self = self else{return}
-                    if let image=image as? UIImage
-                    {
-                        self.imagee.image=image
-                        picker.dismiss(animated: true, completion: nil)
-                    }}}}
-        
-        
     
-        
-        
-        if let itemprovider = results.first?.itemProvider, itemprovider.canLoadObject(ofClass: UIImage.self)
-        { itemprovider.loadObject(ofClass: UIImage.self)
-            { [weak self] image, error in
-                DispatchQueue.main.async {
-                    guard let self = self else{return}
-                    if let image=image as? UIImage
-                    {
-                        self.image2.image=image
-                        picker.dismiss(animated: true, completion: nil)
-                    }}}}
-                
-        if let itemprovider = results.first?.itemProvider, itemprovider.canLoadObject(ofClass: UIImage.self)
-        { itemprovider.loadObject(ofClass: UIImage.self)
-            { [weak self] image, error in
-                DispatchQueue.main.async {
-                    guard let self = self else{return}
-                    if let image=image as? UIImage
-                    {
-                        self.image3.image=image
-                        picker.dismiss(animated: true, completion: nil)
-                    }}}}
-        if let itemprovider = results.last?.itemProvider, itemprovider.canLoadObject(ofClass: UIImage.self)
-        { itemprovider.loadObject(ofClass: UIImage.self)
-            { [weak self] image, error in
-                DispatchQueue.main.async {
-                    guard let self = self else{return}
-                    if let image=image as? UIImage
-                    {
-                        self.image4.image=image
-                        picker.dismiss(animated: true, completion: nil)
-                    }}}}
-        
-    }
-    */
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         let alert=UIAlertController(title: "Audio Recorded", message: nil, preferredStyle:.alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {(handler)in
@@ -328,18 +320,38 @@ extension AddTaskViewController: UIImagePickerControllerDelegate,UINavigationCon
         }
         
         imagee.image = image    }
-  
+    
+}
+
+
+// CATEGORY PICKER VIEW FUNCTIONS
+extension AddTaskViewController: UIPickerViewDelegate,UIPickerViewDataSource{
+    
+    // method to get the categories
     func fetchCategories() {
         do {
-            self.items = try context.fetch(Category.fetchRequest())
-            DispatchQueue.main.async {
-                
-            }
+            self.categories = try context.fetch(Category.fetchRequest())
         }
         catch {
             print(error)
         }
     }
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categories.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categories[row].name
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        select_category.text = categories[row].name
+        select_category.resignFirstResponder()
+        selected_category = categories[row]
+    }
     
 }
