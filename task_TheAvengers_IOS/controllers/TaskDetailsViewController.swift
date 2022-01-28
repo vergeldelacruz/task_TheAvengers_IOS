@@ -78,9 +78,39 @@ class TaskDetailsViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     
+    
+    @IBAction func delete_task(_ sender: Any) {
+        context.delete(selectedTask!)
+        do{
+            try context.save()
+            go_to_home()
+        }
+        catch{
+            print(error.localizedDescription)
+        }
+    }
+    
+    func go_to_home(){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeController") as! HomeController
+        self.present(nextViewController, animated:true, completion:nil)
+    }
+    
+    @IBAction func mark_completed(_ sender: Any) {
+        selectedTask?.status = true
+        do{
+            try context.save()
+            go_to_home()
+        }
+        catch{
+            print(error.localizedDescription)
+        }
+    }
+    
+    
     @IBAction func change_image(_ sender: UIButton) {
-        print(sender.tag)
-        print(image_index)
+//        print(sender.tag)
+//        print(image_index)
         if(sender.tag == 0){
             if(image_index > 0){
                 image_index -= 1
@@ -196,7 +226,6 @@ class TaskDetailsViewController: UIViewController, AVAudioPlayerDelegate {
 
     func deleteNote(note: SubTask){
         context.delete(note)
-        self.navigationController?.popViewController(animated: true)
     }
     
     func updateNotes(with title: String){
@@ -241,12 +270,12 @@ extension TaskDetailsViewController: UITableViewDelegate,UITableViewDataSource{
         
         let task = subTasksArray[indexPath.row]
         cell.label?.text = task.title
-        if(task.status == true){
-            cell.status_btn.tintColor = UIColor(named: "success")
-        }
-        if(task.status == false){
-            cell.status_btn.tintColor = UIColor(named: "light-grey")
-        }
+//        if(task.status == true){
+//            cell.status_btn.tintColor = UIColor(named: "success")
+//        }
+//        if(task.status == false){
+//            cell.status_btn.tintColor = UIColor(named: "light-grey")
+//        }
        
         return cell
         
