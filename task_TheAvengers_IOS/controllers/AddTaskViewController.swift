@@ -73,9 +73,11 @@ class AddTaskViewController: UIViewController, PHPickerViewControllerDelegate,AV
         newtask.createDate = Date()
         newtask.title = heading.text
         newtask.desc = desc.text
+        newtask.createDate = NSDate.init(timeIntervalSinceNow: 0) as Date
         guard let data = try? Data(contentsOf: getFileURL() as URL) else { return }
         newtask.audio = data
         newtask.category = selected_category
+        newtask.status = false
         for img in images{
             let newImage = Image(context: self.context)
             newImage.image = img.pngData()

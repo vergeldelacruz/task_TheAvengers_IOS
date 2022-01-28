@@ -135,6 +135,9 @@
                                         <color key="tintColor" name="primary"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="line.3.horizontal.decrease" catalog="system" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="select_category:" destination="SII-Vw-JeX" eventType="touchUpInside" id="Zvr-eU-Fif"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7g-TT-2he">
                                         <rect key="frame" x="246.99999999999997" y="0.0" width="47.666666666666657" height="50"/>
@@ -146,6 +149,9 @@
                                         <color key="tintColor" name="primary"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="arrow.up.arrow.down" catalog="system" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="select_sort:" destination="SII-Vw-JeX" eventType="touchUpInside" id="V9W-1a-LVW"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWS-XL-DGK" userLabel="search">
                                         <rect key="frame" x="0.0" y="0.0" width="237" height="50"/>
@@ -160,6 +166,9 @@
                                                 <color key="tintColor" name="primary"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="search_tasks:" destination="SII-Vw-JeX" eventType="editingDidEnd" id="k9v-0j-DL7"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" name="light-grey"/>
@@ -189,7 +198,7 @@
                                     <constraint firstItem="ZWS-XL-DGK" firstAttribute="top" secondItem="bAS-M8-cEe" secondAttribute="top" id="q0W-pn-3VL"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Myt-Ph-yMr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="115" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Myt-Ph-yMr">
                                 <rect key="frame" x="20" y="184" width="350" height="571"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -258,6 +267,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="ONL-Kz-uhX"/>
                     <connections>
+                        <outlet property="category_select_button" destination="mVP-78-Nmd" id="VK2-iz-IaU"/>
+                        <outlet property="search_field" destination="96G-Om-6vV" id="ZpQ-UM-yX6"/>
+                        <outlet property="sort_button" destination="L7g-TT-2he" id="53M-PJ-XX8"/>
                         <outlet property="tableView" destination="Myt-Ph-yMr" id="MP5-Zf-gCh"/>
                     </connections>
                 </viewController>
@@ -713,11 +725,6 @@
                             <constraint firstItem="6M3-O2-kus" firstAttribute="top" secondItem="gKq-Vc-blQ" secondAttribute="top" id="ydN-rf-jyi"/>
                             <constraint firstItem="X4z-RI-bH7" firstAttribute="trailing" secondItem="HhR-PA-aPy" secondAttribute="trailing" constant="20" id="zxs-1h-tad"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="6M3-O2-kus"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="bDY-FA-7OO"/>
                     <connections>
@@ -1012,7 +1019,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5pt-5K-9nx"/>
+        <segue reference="iRd-jA-H2M"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
