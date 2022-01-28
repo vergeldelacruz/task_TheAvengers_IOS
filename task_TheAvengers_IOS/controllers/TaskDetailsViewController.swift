@@ -19,11 +19,13 @@ class TaskDetailsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var subTaskTxt: UITextField!
     
-
+    @IBOutlet weak var categoryName: UILabel!
+    
     //subTask
     var subTasksArray = [SubTask]()
     var taskTit: String!
     var selectedSubTask: SubTask?
+    var imageArray = [String]()
     
     var selectedTask : Task?{
         didSet{
@@ -41,6 +43,13 @@ class TaskDetailsViewController: UIViewController {
             
         loadNotes()
         setUpTableView()
+        
+        taskName?.text = selectedTask?.title
+        taskDesc?.text = selectedTask?.desc
+        taskCreatedDate?.text = selectedTask?.createDate?.formatted()
+        categoryName?.text = selectedTask?.category?.name
+       // imageArray.append(contentsOf: selectedTask?.images)
+        
         
     }
     
@@ -61,7 +70,7 @@ class TaskDetailsViewController: UIViewController {
             newFolder.title = subTaskTxt.text!
             self.saveTodos()
             self.updateNotes(with: newFolder.title!)
-            //self.subTasks.append(newFolder)
+           // self.subTasksArray.append(newFolder)
            
             tableView.reloadData()
         }
@@ -107,9 +116,9 @@ class TaskDetailsViewController: UIViewController {
     private func loadNotes(){
         let request : NSFetchRequest<SubTask> = SubTask.fetchRequest()
         
-         //let folderPredicate = NSPredicate(format: "parentTask.title=%@", //selectedTask!.title!)
-        let folderPredicate = NSPredicate(format: "parentTask.title=%@", "")
-        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true),NSSortDescriptor(key: "status", ascending: false)]
+        let folderPredicate = NSPredicate(format: "parentTask.title=%@", selectedTask!.title!)
+     
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         request.predicate = folderPredicate
         
         do{

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -271,6 +271,7 @@
                         <outlet property="search_field" destination="96G-Om-6vV" id="ZpQ-UM-yX6"/>
                         <outlet property="sort_button" destination="L7g-TT-2he" id="53M-PJ-XX8"/>
                         <outlet property="tableView" destination="Myt-Ph-yMr" id="MP5-Zf-gCh"/>
+                        <segue destination="bwi-CF-fe4" kind="showDetail" identifier="taskDetails" id="XfW-m8-JOR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvJ-9s-A5M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -289,7 +290,7 @@
                                 <rect key="frame" x="20" y="64" width="350" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1L-FQ-OOa">
-                                        <rect key="frame" x="9.9999999999999964" y="5" width="44.666666666666657" height="50"/>
+                                        <rect key="frame" x="10.000000000000004" y="5" width="45.333333333333343" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="LaV-Sm-vRJ"/>
                                         </constraints>
@@ -303,13 +304,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BL2-Vt-Rzj">
-                                        <rect key="frame" x="64.666666666666657" y="10.000000000000002" width="118.66666666666666" height="21.666666666666671"/>
+                                        <rect key="frame" x="65.333333333333314" y="10.000000000000002" width="118.66666666666669" height="21.666666666666671"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories to manage tasks easily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5l-jA-Fhl">
-                                        <rect key="frame" x="64.666666666666671" y="36.666666666666671" width="193.33333333333331" height="14.333333333333336"/>
+                                        <rect key="frame" x="65.333333333333329" y="36.666666666666671" width="193.33333333333337" height="14.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -463,7 +464,7 @@
                                 <rect key="frame" x="20" y="64" width="350" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aJ-iR-h5j">
-                                        <rect key="frame" x="9.9999999999999964" y="5" width="44.666666666666657" height="50"/>
+                                        <rect key="frame" x="10.000000000000004" y="5" width="45.333333333333343" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="skv-lf-CQg"/>
                                         </constraints>
@@ -477,13 +478,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ew-Lk-Q1P">
-                                        <rect key="frame" x="64.666666666666686" y="10.000000000000002" width="121.33333333333331" height="21.666666666666671"/>
+                                        <rect key="frame" x="65.333333333333343" y="10.000000000000002" width="121.33333333333334" height="21.666666666666671"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new task related to anything" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMh-eW-aGc">
-                                        <rect key="frame" x="64.666666666666671" y="36.666666666666671" width="185.66666666666663" height="14.333333333333336"/>
+                                        <rect key="frame" x="65.333333333333329" y="36.666666666666671" width="185.66666666666669" height="14.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -758,7 +759,7 @@
                                 <rect key="frame" x="20" y="64" width="350" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5o5-pc-aVb">
-                                        <rect key="frame" x="9.9999999999999964" y="5" width="44.666666666666657" height="50"/>
+                                        <rect key="frame" x="10.000000000000004" y="5" width="45.333333333333343" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="DJs-Dm-FyH"/>
                                         </constraints>
@@ -773,13 +774,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cooking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Q0-Zl-Otn">
-                                        <rect key="frame" x="64.666666666666686" y="10.000000000000002" width="71.333333333333314" height="21.666666666666671"/>
+                                        <rect key="frame" x="65.333333333333343" y="10.000000000000002" width="71.333333333333343" height="21.666666666666671"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="created on: 2022-01-21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buL-40-rwz">
-                                        <rect key="frame" x="64.666666666666671" y="36.666666666666671" width="134.33333333333331" height="14.333333333333336"/>
+                                        <rect key="frame" x="65.333333333333329" y="36.666666666666671" width="134.33333333333337" height="14.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1004,6 +1005,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="categoryName" destination="pZd-PA-hb4" id="FcC-P9-UXj"/>
                         <outlet property="playAudio" destination="u3C-Dg-IcI" id="E1f-vx-KA0"/>
                         <outlet property="subTaskTxt" destination="cgs-u0-Co8" id="bF5-Rv-rh6"/>
                         <outlet property="tableView" destination="gBO-NF-6Ci" id="4J1-kS-kV5"/>
@@ -1019,7 +1021,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iRd-jA-H2M"/>
+        <segue reference="dWL-Sf-jdx"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
