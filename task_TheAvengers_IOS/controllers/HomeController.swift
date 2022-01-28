@@ -18,6 +18,7 @@ class HomeController: UIViewController {
     var if_sort_select_active: Bool = false
     var tasks = [Task]()
     var categories = [Category]()
+    var selectedTask: Task?
     var selected_category = Category()
     var category_picker = UIPickerView()
     var sort_picker = UIPickerView()
@@ -40,6 +41,22 @@ class HomeController: UIViewController {
         search_field.delegate = self
     }
     
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        let destination = segue.destination as! TaskDetailsViewController
+        if let indexPath = tableView.indexPathForSelectedRow{
+            destination.selectedTask = tasks[indexPath.row]
+        }
+        
+        
+        
+    }
+
+  
     func fetchtasks() {
         do {
             let request: NSFetchRequest<Task> = Task.fetchRequest()
@@ -253,6 +270,11 @@ extension HomeController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(tasks[indexPath.row].createDate)
-    }
+        selectedTask = tasks[indexPath.row]
+       performSegue(withIdentifier: "taskDetails", sender: self)
+       
+              
+            
+    
+}
 }
