@@ -21,6 +21,8 @@
 		CF43806B279BA12000CB7A5E /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF438069279BA12000CB7A5E /* CategoryTableViewCell.xib */; };
 		CF43806E279BA3FF00CB7A5E /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF43806D279BA3FF00CB7A5E /* AddTaskViewController.swift */; };
 		CF438070279BA8A700CB7A5E /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF43806F279BA8A700CB7A5E /* TaskDetailsViewController.swift */; };
+		CF44A27527A4992A006282FD /* SubTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF44A27327A4992A006282FD /* SubTaskViewController.swift */; };
+		CF44A27627A4992A006282FD /* SubTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF44A27427A4992A006282FD /* SubTaskViewController.xib */; };
 		CF88BA1C279A42B40071199C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF88BA1B279A42B40071199C /* HomeController.swift */; };
 		CFAA8E75279A80A5003384B1 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAA8E73279A80A4003384B1 /* TaskTableViewCell.swift */; };
 		CFAA8E76279A80A5003384B1 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFAA8E74279A80A4003384B1 /* TaskTableViewCell.xib */; };
@@ -43,6 +45,8 @@
 		CF438069279BA12000CB7A5E /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		CF43806D279BA3FF00CB7A5E /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		CF43806F279BA8A700CB7A5E /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
+		CF44A27327A4992A006282FD /* SubTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskViewController.swift; sourceTree = "<group>"; };
+		CF44A27427A4992A006282FD /* SubTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubTaskViewController.xib; sourceTree = "<group>"; };
 		CF88BA1B279A42B40071199C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		CFAA8E73279A80A4003384B1 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		CFAA8E74279A80A4003384B1 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
@@ -101,6 +105,15 @@
 			path = category;
 			sourceTree = "<group>";
 		};
+		CF44A27227A49908006282FD /* sub_tasks */ = {
+			isa = PBXGroup;
+			children = (
+				CF44A27327A4992A006282FD /* SubTaskViewController.swift */,
+				CF44A27427A4992A006282FD /* SubTaskViewController.xib */,
+			);
+			path = sub_tasks;
+			sourceTree = "<group>";
+		};
 		CF88BA1D279A42EC0071199C /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +130,7 @@
 		CFAA8E72279A807B003384B1 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				CF44A27227A49908006282FD /* sub_tasks */,
 				CFAA8E73279A80A4003384B1 /* TaskTableViewCell.swift */,
 				CFAA8E74279A80A4003384B1 /* TaskTableViewCell.xib */,
 				CF43806C279BA13000CB7A5E /* category */,
@@ -188,6 +202,7 @@
 				23F9DA0F279A319B00B61768 /* Assets.xcassets in Resources */,
 				23E468CA279DCAA100BDCFE6 /* TaskCategoryTableViewCell.xib in Resources */,
 				23F9DA0A279A319A00B61768 /* Main.storyboard in Resources */,
+				CF44A27627A4992A006282FD /* SubTaskViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +215,7 @@
 			files = (
 				CF438065279B849D00CB7A5E /* AddCategoryController.swift in Sources */,
 				23F9DA07279A319A00B61768 /* ViewController.swift in Sources */,
+				CF44A27527A4992A006282FD /* SubTaskViewController.swift in Sources */,
 				23E468C9279DCAA100BDCFE6 /* TaskCategoryTableViewCell.swift in Sources */,
 				23F9DA03279A319A00B61768 /* AppDelegate.swift in Sources */,
 				CF43806A279BA12000CB7A5E /* CategoryTableViewCell.swift in Sources */,

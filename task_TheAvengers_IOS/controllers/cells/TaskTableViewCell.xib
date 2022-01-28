@@ -67,6 +67,7 @@
                         </constraints>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="a26-EV-OQS" firstAttribute="trailing" secondItem="Ozg-NG-Sc8" secondAttribute="trailing" constant="75" id="6Ba-FL-wX9"/>
                     <constraint firstItem="Xtp-mX-cAr" firstAttribute="top" secondItem="Ozg-NG-Sc8" secondAttribute="bottom" constant="3" id="9ki-Xq-dU7"/>
@@ -82,6 +83,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="created_date" destination="9J9-Ci-5DM" id="r3r-67-6N9"/>
                 <outlet property="desc" destination="Xtp-mX-cAr" id="Yf9-ho-d42"/>

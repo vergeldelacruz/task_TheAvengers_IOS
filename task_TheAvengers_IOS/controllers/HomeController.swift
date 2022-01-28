@@ -44,17 +44,17 @@ class HomeController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        let destination = segue.destination as! TaskDetailsViewController
-        if let indexPath = tableView.indexPathForSelectedRow{
-            destination.selectedTask = tasks[indexPath.row]
-        }
-        
-        
-        
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//        let destination = segue.destination as! TaskDetailsViewController
+//        if let indexPath = tableView.indexPathForSelectedRow{
+//            destination.selectedTask = tasks[indexPath.row]
+//        }
+//
+//
+//
+//    }
 
   
     func fetchtasks() {
@@ -275,10 +275,10 @@ extension HomeController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedTask = tasks[indexPath.row]
-       performSegue(withIdentifier: "taskDetails", sender: self)
-       
-              
-            
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TaskDetailsViewController") as! TaskDetailsViewController
+        nextViewController.selectedTask = selectedTask
+        self.present(nextViewController, animated:true, completion:nil)
+    }
     
-}
 }

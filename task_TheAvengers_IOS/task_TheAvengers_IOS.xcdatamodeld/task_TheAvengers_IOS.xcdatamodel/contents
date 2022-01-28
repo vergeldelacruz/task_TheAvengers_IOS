@@ -5,7 +5,7 @@
         <relationship name="parentTask" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="category" inverseEntity="Task"/>
     </entity>
     <entity name="Image" representedClassName="Image" syncable="YES" codeGenerationType="class">
-        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="data" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <relationship name="parentTask" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="images" inverseEntity="Task"/>
     </entity>
     <entity name="SubTask" representedClassName="SubTask" syncable="YES" codeGenerationType="class">

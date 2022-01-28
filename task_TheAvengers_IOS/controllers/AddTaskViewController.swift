@@ -80,7 +80,7 @@ class AddTaskViewController: UIViewController, PHPickerViewControllerDelegate,AV
         newtask.status = false
         for img in images{
             let newImage = Image(context: self.context)
-            newImage.image = img.pngData()
+            newImage.data = img.jpegData(compressionQuality: 0.5)
             newtask.addToImages(newImage)
         }
         do {
