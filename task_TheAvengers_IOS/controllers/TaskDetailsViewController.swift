@@ -80,13 +80,20 @@ class TaskDetailsViewController: UIViewController, AVAudioPlayerDelegate {
     
     
     @IBAction func delete_task(_ sender: Any) {
-        context.delete(selectedTask!)
-        do{
-            try context.save()
-            go_to_home()
+        if(selectedTask?.subTasks?.count ?? [].count <= 0){
+            context.delete(selectedTask!)
+            do{
+                try context.save()
+                go_to_home()
+            }
+            catch{
+                print(error.localizedDescription)
+            }
         }
-        catch{
-            print(error.localizedDescription)
+        else{
+            let alert = UIAlertController(title: "Can't delete task with pending subtasks!", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

@@ -85,10 +85,17 @@ class AddTaskViewController: UIViewController, PHPickerViewControllerDelegate,AV
         }
         do {
             try self.context.save()
+            go_to_home()
         } catch {
             print(error.localizedDescription)
         }
         
+    }
+    
+    func go_to_home(){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HomeController") as! HomeController
+        self.present(nextViewController, animated:true, completion:nil)
     }
     
     //MARK: Audio Func:
