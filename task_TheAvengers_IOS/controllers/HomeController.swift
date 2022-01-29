@@ -13,7 +13,7 @@ class HomeController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var search_field: UITextField!
     
-    var sort_details = ["Sort by date - ASC", "Sort by date - DESC", "Show Completed"]
+    var sort_details = ["Sort by date - ASC", "Sort by date - DESC", "Sort by Title - ASC", "Sort by Title - DESC", "Show Completed"]
     var selected_sort = "Sort by date - ASC"
     var if_sort_select_active: Bool = false
     var tasks = [Task]()
@@ -171,6 +171,12 @@ class HomeController: UIViewController {
         }
         if(selected_sort == "Sort by date - DESC"){
             request.sortDescriptors = [NSSortDescriptor(key: "createDate", ascending: false)]
+        }
+        if(selected_sort == "Sort by Title - ASC"){
+            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        }
+        if(selected_sort == "Sort by Title - DESC"){
+            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: false)]
         }
         if(selected_sort == "Show Completed"){
             request.predicate = statusPredicate

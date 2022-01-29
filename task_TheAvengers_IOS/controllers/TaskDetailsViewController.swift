@@ -126,18 +126,25 @@ class TaskDetailsViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     @IBAction func mark_completed(_ sender: Any) {
-        if(mark_completed_button.tag == 0){
-            selectedTask?.status = true
+        if(self.selectedTask?.subTasks?.count ?? [].count <= 0){
+            if(mark_completed_button.tag == 0){
+                selectedTask?.status = true
+            }
+            else{
+                selectedTask?.status = false
+            }
+            do{
+                try context.save()
+                go_to_home()
+            }
+            catch{
+                print(error.localizedDescription)
+            }
         }
         else{
-            selectedTask?.status = false
-        }
-        do{
-            try context.save()
-            go_to_home()
-        }
-        catch{
-            print(error.localizedDescription)
+            let alert = UIAlertController(title: "Can't mark task completed with pending subtasks!", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -212,6 +219,8 @@ class TaskDetailsViewController: UIViewController, AVAudioPlayerDelegate {
 //            self.subTasksArray.append(newSubTask)
             tableView.reloadData()
             subTaskTxt.text = ""
+            selectedTask?.status = false
+            check_completion()
         }
     }
     
