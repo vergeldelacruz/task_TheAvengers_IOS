@@ -19,7 +19,7 @@
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="parentTask" inverseEntity="Category"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Category" inverseName="parentTask" inverseEntity="Category"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Image" inverseName="parentTask" inverseEntity="Image"/>
         <relationship name="subTasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubTask" inverseName="parentTask" inverseEntity="SubTask"/>
     </entity>

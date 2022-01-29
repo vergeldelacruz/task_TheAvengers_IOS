@@ -20,6 +20,7 @@ class HomeController: UIViewController {
     var categories = [Category]()
     var selectedTask: Task?
     var selected_category = Category()
+    var got_selected_category: Bool = false
     var category_picker = UIPickerView()
     var sort_picker = UIPickerView()
     var toolBar = UIToolbar()
@@ -92,6 +93,7 @@ class HomeController: UIViewController {
     // METHOD TO SELECT CATEGORY
     @IBAction func select_category(_ sender: Any) {
         if_sort_select_active = false
+        got_selected_category = false
         category_picker = UIPickerView.init()
         category_picker.delegate = self
         category_picker.dataSource = self
@@ -113,17 +115,21 @@ class HomeController: UIViewController {
         toolBar.removeFromSuperview()
         category_picker.removeFromSuperview()
         
-        
-        // get the tasks based on the category
-        let request: NSFetchRequest<Task> = Task.fetchRequest()
-        let categoryPredicate = NSPredicate(format: "category = %@", selected_category)
-        request.predicate = categoryPredicate
-        do {
-            tasks = try context.fetch(request)
-        } catch {
-            print("Error loading tasks \(error.localizedDescription)")
+        if(got_selected_category == true){
+            // get the tasks based on the category
+            let request: NSFetchRequest<Task> = Task.fetchRequest()
+            let categoryPredicate = NSPredicate(format: "category = %@", selected_category)
+            request.predicate = categoryPredicate
+            do {
+                tasks = try context.fetch(request)
+            } catch {
+                print("Error loading tasks \(error.localizedDescription)")
+            }
+            tableView.reloadData()
         }
-        tableView.reloadData()
+        else{
+            fetchtasks()
+        }
         
         if_sort_select_active = true
     }
@@ -229,6 +235,7 @@ extension HomeController: UIPickerViewDelegate,UIPickerViewDataSource{
         
         if(!if_sort_select_active){
             selected_category = categories[row]
+            got_selected_category = true
         }
         else{
             selected_sort = sort_details[row]
