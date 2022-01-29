@@ -135,7 +135,9 @@
                                         </constraints>
                                         <color key="tintColor" name="primary"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="line.3.horizontal.decrease" catalog="system" cornerStyle="large"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="line.3.horizontal.decrease" catalog="system" cornerStyle="large">
+                                            <color key="baseBackgroundColor" name="primary"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="select_category:" destination="SII-Vw-JeX" eventType="touchUpInside" id="Zvr-eU-Fif"/>
                                         </connections>
@@ -149,7 +151,9 @@
                                         </constraints>
                                         <color key="tintColor" name="primary"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="arrow.up.arrow.down" catalog="system" cornerStyle="large"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="arrow.up.arrow.down" catalog="system" cornerStyle="large">
+                                            <color key="baseBackgroundColor" name="primary"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="select_sort:" destination="SII-Vw-JeX" eventType="touchUpInside" id="V9W-1a-LVW"/>
                                         </connections>
@@ -219,6 +223,7 @@
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
+                                            <color key="baseBackgroundColor" name="primary"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="goToCategories:" destination="SII-Vw-JeX" eventType="touchUpInside" id="FYH-wW-4vl"/>
@@ -237,6 +242,7 @@
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
+                                            <color key="baseBackgroundColor" name="primary"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="e65-Do-CRA" kind="show" id="hPj-bN-F9i"/>
@@ -349,7 +355,9 @@
                                         </constraints>
                                         <color key="tintColor" name="primary"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" cornerStyle="large"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" cornerStyle="large">
+                                            <color key="baseBackgroundColor" name="primary"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="onAddCategory:" destination="jEY-GJ-wBT" eventType="touchUpInside" id="F2y-0c-ev5"/>
                                         </connections>
@@ -929,7 +937,6 @@
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
-                                            <color key="baseBackgroundColor" name="success"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="mark_completed:" destination="bwi-CF-fe4" eventType="touchUpInside" id="nFg-j6-IAg"/>
@@ -1015,6 +1022,7 @@
                     </view>
                     <connections>
                         <outlet property="categoryName" destination="pZd-PA-hb4" id="FcC-P9-UXj"/>
+                        <outlet property="mark_completed_button" destination="PPH-qa-ydW" id="v3O-yU-1Ky"/>
                         <outlet property="next_button" destination="uwd-PW-DnO" id="xyv-v7-yL8"/>
                         <outlet property="playAudio" destination="u3C-Dg-IcI" id="E1f-vx-KA0"/>
                         <outlet property="play_button" destination="u3C-Dg-IcI" id="hjb-RY-BBR"/>

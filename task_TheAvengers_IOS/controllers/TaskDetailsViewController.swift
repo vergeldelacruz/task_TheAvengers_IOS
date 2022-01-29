@@ -24,6 +24,7 @@ class TaskDetailsViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet weak var play_button: UIButton!
     @IBOutlet weak var prev_button: UIButton!
     @IBOutlet weak var next_button: UIButton!
+    @IBOutlet weak var mark_completed_button: UIButton!
     
     //subTask
     var subTasksArray = [SubTask]()
@@ -56,6 +57,22 @@ class TaskDetailsViewController: UIViewController, AVAudioPlayerDelegate {
         tableView.rowHeight = UITableView.automaticDimension
     
         prepareImages()
+        
+        check_completion()
+    }
+    
+    func check_completion(){
+        let status = selectedTask!.status
+        if(status == true){
+            mark_completed_button.tag = 1
+            mark_completed_button.tintColor = UIColor(named: "danger")
+            mark_completed_button.setTitle("Mark Incomplete", for: .normal)
+        }
+        else if(status == false){
+            mark_completed_button.tag = 0
+            mark_completed_button.tintColor = UIColor(named: "success")
+            mark_completed_button.setTitle("Mark Completed", for: .normal)
+        }
     }
     
     var images = [Image]()
@@ -104,7 +121,12 @@ class TaskDetailsViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     @IBAction func mark_completed(_ sender: Any) {
-        selectedTask?.status = true
+        if(mark_completed_button.tag == 0){
+            selectedTask?.status = true
+        }
+        else{
+            selectedTask?.status = false
+        }
         do{
             try context.save()
             go_to_home()
@@ -184,6 +206,7 @@ class TaskDetailsViewController: UIViewController, AVAudioPlayerDelegate {
 //            self.updateNotes(with: newSubTask.title!)
 //            self.subTasksArray.append(newSubTask)
             tableView.reloadData()
+            subTaskTxt.text = ""
         }
     }
     
